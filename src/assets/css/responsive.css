@@ -5,9 +5,6 @@
 }
 
 @media (min-width:992px) and (max-width:1200px) {
-  .wrapper{
-    width: 92%;
-  }
 
 }
 
@@ -22,10 +19,6 @@
 }
 
 @media (min-width:576px) and (max-width:991.8px){
-  .wrapper{
-    width: 85%;
-  }
-
 
   .heading-md{
     font-size: 18px;
