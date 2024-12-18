@@ -66,7 +66,7 @@ const Header = () => {
                 </Link>
               </li>
               <li className="option">
-                <Link to={'/'}>
+                <Link to={'/login'}>
                   Logout
                 </Link>
               </li>
