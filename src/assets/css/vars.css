@@ -14,6 +14,9 @@ html{
   --color-btn-primary: #000;
   --color-primary: #6AAFEA;
   --color-primary-darker: #353535;
+  --color-gray-1: #E0E4EC;
+  --color-gray-2: #EDF2F6;
+  --color-gray-3: #8D98AA;
   
   --color-secondary: #002F3D;
   --color-text-success:#3CD139;
@@ -26,6 +29,7 @@ html{
   /* colors */
   --magenta: #883DCF;
   --blue-light: #2BB2FE;
+  --blue-light-2: #E7F4FC;
   --orange: #F86624;
   --orange-2: #F7981D;
   --green: #25E17B;

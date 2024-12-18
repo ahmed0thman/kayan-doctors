@@ -4,6 +4,13 @@ body{
   padding: 0;
   margin: 0;
   overflow-x: hidden;
+  transform: rotateY(0deg);
+  transition: transform 0s ease-in-out;
+}
+
+body.rotate{
+  transition: transform 0.5s ease-in-out;
+  transform: rotateY(180deg);
 }
 
 
@@ -37,6 +44,3 @@ p{
   margin: 0;
 }
 
-main{
-
-}

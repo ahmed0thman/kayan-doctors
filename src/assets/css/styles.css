@@ -2,10 +2,12 @@
 @import url('fonts.css');
 @import url('initial.css');
 @import url('containers.css');
+@import url('modal.css');
 @import url('custome.css');
-@import url('header.css');
 @import url('side-menu.css');
 @import url('responsive.css');
+@import url('rtl.css');
+
 
 /* Login Page */
 .login{
@@ -56,13 +58,7 @@
   height: 100vh;
 }
 
-main{
-  background-color: #F9F9FC;
-  flex-grow: 1;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-}
+
 
 /* Side Menu */
 .side-menu{
@@ -120,6 +116,8 @@ main{
   background-color: #fff;
   display: flex;
   align-items: center;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.15);
+  z-index: 2;
 
   .bread-crumb{
     flex-grow: 1;
@@ -171,7 +169,7 @@ main{
     }
 
     .account-user-info{
-      padding-inline: 1rem;
+      padding-inline: 1.5rem;
       border-inline-start: 1px solid #F0F1F3;
       display: flex;
       align-items: center;
@@ -220,6 +218,8 @@ main{
               color: #4C535F;
               font-size: 14px;
               font-weight: 500;
+              display: block;
+              width: 100%;
             }
             
             &:not(:last-child){
@@ -305,3 +305,54 @@ main{
   }
 
 }
+
+/* Settings */
+
+.settings-nav{
+  margin-bottom: 2rem;
+  .btn{
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+}
+
+.setting-card{
+  background-color: #fff;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+
+  .heading{
+    
+    margin-bottom: 1.75rem;
+  }
+
+  .btn-new-address{
+    color: var(--color-primary) !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+  table{
+    width: calc(100% + 4rem);
+    text-align: center;
+    margin-inline: -2rem;
+    margin-bottom: -1.5rem;
+  }
+
+  .btn-submit{
+    display: block;
+    justify-self: end;
+    margin-top: 2rem;
+  }
+}
+.setting-form{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  
+
+  
+}
+
+

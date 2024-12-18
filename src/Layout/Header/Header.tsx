@@ -51,17 +51,17 @@ const Header = () => {
 
             <ul className={`options-list ${showOptions && "show"}`}>
               <li className="option">
-                <Link to={'/'}>
+                <Link to={'/settings'}>
                   Settings
                 </Link>
               </li>
               <li className="option">
-                <Link to={'/'}>
+                <Link to={'/settings/change-password'}>
                   Change Password
                 </Link>
               </li>
               <li className="option">
-                <Link to={'/'}>
+                <Link to={'/settings/change-language'}>
                   Change Language
                 </Link>
               </li>

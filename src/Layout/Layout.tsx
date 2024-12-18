@@ -14,8 +14,10 @@ const Layout = (props: Props) => {
       <SideMenu />
       <main>
         <Header />
-        <div className="wrapper">
-          {props.children}
+        <div className="page">
+          <div className="wrapper">
+            {props.children}
+          </div>
         </div>
       </main>
     </div>

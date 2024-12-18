@@ -1,0 +1,46 @@
+.modal{
+  all:revert;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.2);
+  transition: opacity 0.25s ease-in-out,
+              transform 0.15s ease-in-out 0.1s;
+
+  .modal-header{
+    border-bottom: none;
+  }
+  
+  .modal-container{
+    background-color: #fff;
+    width: fit-content;
+    min-width: 350px;
+    width: 50vw;
+    max-width: 700px;
+    padding: 3.5rem;
+    border-radius: 0.5rem;
+    position: relative;
+
+    .btn-close{
+      position: absolute;
+      inset-inline-end: 1rem;
+      top: 1rem ;
+    }
+  }
+
+  &.show{
+    pointer-events: revert;
+    transform: scale(1);
+    opacity: 1;
+  }
+}

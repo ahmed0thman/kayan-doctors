@@ -1,8 +1,22 @@
+main{
+  background-color: #F9F9FC;
+  flex-grow: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  
+}
+
 .wrapper{
   padding: 2rem;
   margin: 0 auto;
   width: 100%;
-  overflow-y: auto;
   max-width: 1400px;
+  
+}
+
+.page{
+  width: 100%;
+  overflow-y: auto;
 }
 

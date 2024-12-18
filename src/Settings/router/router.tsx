@@ -12,12 +12,48 @@ import AllPatients from "../../Pages/Patients/AllPatients/AllPatients";
 import Live from "../../Pages/Live/Live";
 import MedicalTest from "../../Pages/MedicalTest/MedicalTest";
 import AccountReports from "../../Pages/AccountReports/AccountReports";
+import BasicSettings from "../../Pages/Settings/BasicSettings/BasicSettings";
+import PrescriptionSettings from "../../Pages/Settings/PrescriptionSettings/PrescriptionSettings";
+import ChangePassword from "../../Pages/Settings/ChangePassword";
+import ChangeLanguage from "../../Pages/Settings/ChangeLanguage";
 
 export const router = createBrowserRouter([
   {
     path:'/login',
     element:(
       <Login />
+    )
+  },
+  {
+    path:'/settings',
+    element:(
+      <Layout>
+        <BasicSettings />
+      </Layout>
+    )
+  },
+  {
+    path:'/settings/prescriptions',
+    element:(
+      <Layout>
+        <PrescriptionSettings />
+      </Layout>
+    )
+  },
+  {
+    path:'/settings/change-password',
+    element:(
+      <Layout>
+        <ChangePassword />
+      </Layout>
+    )
+  },
+  {
+    path:'/settings/change-language',
+    element:(
+      <Layout>
+        <ChangeLanguage />
+      </Layout>
     )
   },
   {

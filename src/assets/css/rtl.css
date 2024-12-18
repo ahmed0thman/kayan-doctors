@@ -1,0 +1,26 @@
+html[dir='rtl']{
+  .header{
+    .bread-crumb{
+      &:before{
+        transform: rotate(40deg);
+      }
+    }
+  }
+
+  .form-toggle{
+    label{
+      &::before{
+        transform: translate(0px) ;
+      }
+    }
+
+    &:has(input[type="checkbox"]:checked),
+    &:has(input[type="radio"]:checked){
+      label{
+        &::before{
+          transform: translate(4px) ;
+        }
+      }
+    }
+  }
+}
