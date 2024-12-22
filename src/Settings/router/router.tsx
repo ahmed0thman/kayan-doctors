@@ -16,132 +16,163 @@ import BasicSettings from "../../Pages/Settings/BasicSettings/BasicSettings";
 import PrescriptionSettings from "../../Pages/Settings/PrescriptionSettings/PrescriptionSettings";
 import ChangePassword from "../../Pages/Settings/ChangePassword";
 import ChangeLanguage from "../../Pages/Settings/ChangeLanguage";
+import RequiredAuth from "../../Settings/authentication/RequiredAuth";
 
 export const router = createBrowserRouter([
   {
-    path:'/login',
-    element:(
+    path: `${process.env.REACT_APP_URL_Publish}login`,
+    element: (
       <Login />
     )
   },
   {
-    path:'/settings',
-    element:(
-      <Layout>
-        <BasicSettings />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}settings`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <BasicSettings />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/settings/prescriptions',
-    element:(
-      <Layout>
-        <PrescriptionSettings />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}settings/prescriptions`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <PrescriptionSettings />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/settings/change-password',
-    element:(
-      <Layout>
-        <ChangePassword />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}settings/change-password`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <ChangePassword />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/settings/change-language',
-    element:(
-      <Layout>
-        <ChangeLanguage />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}settings/change-language`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <ChangeLanguage />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/',
-    element:(
-      <Layout>
-        <Home />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Home />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/easy',
-    element:(
-      <Layout>
-        <Easy />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}easy`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Easy />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/dr-easy',
-    element:(
-      <Layout>
-        <DrEasy />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}dr-easy`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <DrEasy />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/re-examination',
-    element:(
-      <Layout>
-        <ReExamination />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}re-examination`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <ReExamination />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/patients/add-patients',
-    element:(
-      <Layout>
-        <AddPatient />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}patients/add-patients`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <AddPatient />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/following-up',
-    element:(
-      <Layout>
-        <FollowingUp />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}following-up`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <FollowingUp />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/examination',
-    element:(
-      <Layout>
-        <Examination />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}examination`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Examination />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/patients',
-    element:(
-      <Layout>
-        <AllPatients />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}patients`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <AllPatients />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/live',
-    element:(
-      <Layout>
-        <Live />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}live`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Live />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/medical-test',
-    element:(
-      <Layout>
-        <MedicalTest />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}medical-test`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <MedicalTest />
+        </Layout>
+      </RequiredAuth>
     )
   },
   {
-    path:'/account-reports',
-    element:(
-      <Layout>
-        <AccountReports />
-      </Layout>
+    path: `${process.env.REACT_APP_URL_Publish}account-reports`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <AccountReports />
+        </Layout>
+      </RequiredAuth>
     )
   },
 ])

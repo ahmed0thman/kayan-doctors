@@ -21,6 +21,10 @@
 .color-primary{
   color: var(--color-primary);
 }
+.color-secondary{
+  color: var(--color-secondary);
+}
+
 .heading-md{
   color: var(--color-primary);
   font-size: 24px;

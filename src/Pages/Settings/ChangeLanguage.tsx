@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { APP_DISPATCH } from '../../Settings/store/store';
+import {language, setLanguage} from '../../Settings/store/features/language/languageSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const ChangeLanguage = () => {
-  const [lang, setLang] = useState<'en' | 'ar'>('en');
+  const dispatch = useDispatch<APP_DISPATCH>()
+  const languageState = useSelector(language)
+  const [lang, setLang] = useState(languageState);
+  const navigate = useNavigate()
 
   const HandleLang = (lang:'en'|'ar')=>{
+    dispatch(setLanguage(lang))
     setLang(lang)
-    document.body.classList.add('rotate');
-    setTimeout(
-      () => {
-        if (lang === 'ar') {
-          document.dir = "rtl"
-        }
-        else if (lang === 'en') {
-          document.dir = "ltr"
-        }
-        document.body.classList.remove('rotate');
-      }
-      ,
-      500
-    )
+    navigate(0);
   }
+
+  // useEffect(()=>{
+    
+  // },[languageState])
   return (
     <section className="setting-card">
       <div className='d-flex flex-column gap-3' style={{ maxWidth: "250px" }}>
@@ -34,7 +33,7 @@ const ChangeLanguage = () => {
           </div>
           <div className="col-6">
             <div className="form-toggle">
-              <input type="radio" name="lang" id="arabic" onChange={() => HandleLang('ar')} />
+              <input type="radio" name="lang" id="arabic" onChange={() => HandleLang('ar')}  checked={lang==='ar'}/>
               <label htmlFor="arabic"></label>
             </div>
           </div>
@@ -48,7 +47,7 @@ const ChangeLanguage = () => {
           <div className="col-6">
             <div className="form-toggle">
               <input type="radio" name="lang" id="english"
-                onChange={() => HandleLang('en')} />
+                onChange={() => HandleLang('en')} checked={lang==='en'}/>
               <label htmlFor="english"></label>
             </div>
           </div>
