@@ -3,7 +3,7 @@ import { ROOT_STATE } from "../../store";
 import { strings } from "../../../localization/strings";
 
 export type lang = 'en'|'ar'
-const initialState = 'en'
+const initialState = localStorage.getItem('Lan') || 'en'
 
 const langSlice = createSlice({
   name: 'language',

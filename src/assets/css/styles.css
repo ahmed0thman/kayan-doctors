@@ -175,7 +175,7 @@
       display: flex;
       align-items: center;
       column-gap: 10px;
-      color: #5e5e5e;
+      color: var(--color-gray-4);
       .profile-img{
         width: 44px;
         aspect-ratio: 1/1;
@@ -221,6 +221,7 @@
               font-weight: 500;
               display: block;
               width: 100%;
+              text-transform: capitalize;
             }
             
             &:not(:last-child){
@@ -303,13 +304,68 @@
         }
       }
     }
+
+    .chart-card{
+      width: 544px;
+      height: 362px;
+      padding: 1.5rem;
+      padding-bottom: 3.5rem;
+      background-color: #fff;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      .card-header{
+        display: flex;
+        justify-content: space-between;
+        
+        .title{
+          .heading{
+            color: var(--color-gray-4);
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 30px;
+            text-transform: capitalize;
+          }
+
+          .sub-heading{
+            font-size: 14px;
+            line-height: 20px;
+            color: var(--color-gray-5);
+            text-transform: capitalize;
+          }
+        }
+        .btn-show-more{
+          text-transform: capitalize;
+          font-size: 1rem;
+          font-weight: 500;
+          line-height: 30px;
+          color: var(--color-gray-4);
+          padding: 0;
+        }
+      }
+
+      .chart-body{
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+      }
+      .chart-legend{
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 20px;
+        color: var(--color-gray-4);
+      }
+    }
   }
 
 }
 
 /* Settings */
 
-.settings-nav{
+.sub-page-nav{
   margin-bottom: 2rem;
   .btn{
     padding: 1rem;

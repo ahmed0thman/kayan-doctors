@@ -7,4 +7,4 @@ export let  strings = new LocalizedStrings({
   en:en
 })
 
-strings.setLanguage('en')
+strings.setLanguage(localStorage.getItem('Lan') || 'en')

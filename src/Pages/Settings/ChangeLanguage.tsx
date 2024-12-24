@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { APP_DISPATCH } from '../../Settings/store/store';
 import {language, setLanguage} from '../../Settings/store/features/language/languageSlice';
 import { useNavigate } from 'react-router-dom';
+import { setActivePage } from '../../Settings/store/features/activePage/activePageSlice';
+import { strings } from '../../Settings/localization/strings';
 
 
 
@@ -11,11 +13,14 @@ const ChangeLanguage = () => {
   const languageState = useSelector(language)
   const [lang, setLang] = useState(languageState);
   const navigate = useNavigate()
+  dispatch(setActivePage(strings.settings))
 
   const HandleLang = (lang:'en'|'ar')=>{
     dispatch(setLanguage(lang))
     setLang(lang)
-    navigate(0);
+    // setTimeout(()=>{
+    //   navigate(0);
+    // },330)
   }
 
   // useEffect(()=>{
@@ -28,7 +33,7 @@ const ChangeLanguage = () => {
         <div className="row">
           <div className="col-6">
             <label className='form-label' htmlFor="arabic">
-              arabic
+              {strings.arabic}
             </label>
           </div>
           <div className="col-6">
@@ -41,7 +46,7 @@ const ChangeLanguage = () => {
         <div className="row">
           <div className="col-6">
             <label className='form-label' htmlFor="english">
-              english
+            {strings.english}
             </label>
           </div>
           <div className="col-6">
@@ -55,7 +60,7 @@ const ChangeLanguage = () => {
       </div>
       <button className="btn btn-primary btn-submit"
       >
-        Save
+        {strings.save}
       </button>
     </section>
   )

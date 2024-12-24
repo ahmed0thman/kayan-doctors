@@ -1,4 +1,5 @@
 export const ar={
+  welcome:'مرحبا',
   home:'الرئيسية',
   easy:'إيزي',
   drEasy:'دكتور إيزي',
@@ -9,5 +10,18 @@ export const ar={
   allPatients:'جميع المرضى',
   live:'مباشر',
   medicalTest:'فحص طبي',
-  accountReports:'تقارير الحساب'
+  accountReports:'تقارير الحساب',
+  settings:'الإعدادات',
+  changePassword:'تغيير كلمة المرور',
+  changelanguage:'تغيير اللغه',
+  logout: 'تسجيل الخروج',
+  english:'إنجليزي',
+  arabic:'عربي',
+  save:'حفظ',
+  inputs:'المدخلات',
+  expense: 'المصروفات',
+  netprofit:'صافي الربح',
+  up: 'أعلى ' ,
+  down: 'أقل ',
+  fromYesterday: 'من البارحه',
 }

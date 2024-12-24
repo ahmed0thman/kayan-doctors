@@ -17,7 +17,6 @@ const RequiredAuth = ({children}:{children:any}) => {
   const navigate = useNavigate();
 
   if(localStorage.getItem('Lan')){
-    console.log(localStorage.getItem('Lan'))
     dispatch(setLanguage(localStorage.getItem('Lan') as lang))
     strings.setLanguage(lan)
   }
@@ -28,7 +27,6 @@ const RequiredAuth = ({children}:{children:any}) => {
       
     }
     else if(localStorage.getItem('activeUser')){
-      console.log(localStorage.getItem('activeUser'))
       const userInfo:user = JSON.parse(localStorage.getItem('activeUser') as string)
       setIsLoggedIn(true)
       dispatch(setAuthedState(true))

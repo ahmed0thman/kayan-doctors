@@ -2,6 +2,7 @@ import React from 'react'
 import { statsCard } from './types'
 import rateUp from "../../assets/images/icons/rate-up.svg"
 import rateDown from "../../assets/images/icons/rate-down.svg"
+import { strings } from '../../Settings/localization/strings'
 
 const StatsCard = ({stats}:{stats: statsCard}) => {
   return (
@@ -18,15 +19,17 @@ const StatsCard = ({stats}:{stats: statsCard}) => {
         <img src={stats.icon} alt="" className="card-img" />
       </div>
       <div className="card-summary">
-        <img src={stats.stats.rateChange==='up'?rateUp:rateDown} alt="" />
+        <img src={stats.stats.rateChange===strings.up?rateUp:rateDown} alt="" />
         <p className="summary">
           <span className={`value-summary ${stats.stats.rateChange}`}>
-            {stats.stats.summary} 
+            {stats.stats.summary} %
           </span>
           <span className="rate-change">
             {stats.stats.rateChange}
           </span>
-           from yesterday
+          <span>
+            {strings.fromYesterday}
+          </span>
         </p>
       </div>
     </div>

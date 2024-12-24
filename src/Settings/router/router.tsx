@@ -3,6 +3,8 @@ import Layout from "../../Layout/Layout";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Account/LogIn/Login";
 import Easy from "../../Pages/Easy/Easy";
+import OldPatient from "../../Pages/Easy/OldPatients/OldPatients";
+import AddNewPatient from "../../Pages/Easy/AddNewPatient/AddNewPatient";
 import DrEasy from "../../Pages/DrEasy/DrEasy";
 import ReExamination from "../../Pages/ReExamination/ReExamination";
 import AddPatient from "../../Pages/Patients/AddPatient/AddPatient";
@@ -86,6 +88,30 @@ export const router = createBrowserRouter([
     )
   },
   {
+    path: `${process.env.REACT_APP_URL_Publish}easy/allPatient`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Easy>
+            <OldPatient />
+          </Easy>
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}easy/newPatient`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Easy>
+            <AddNewPatient />
+          </Easy>
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
     path: `${process.env.REACT_APP_URL_Publish}dr-easy`,
     element: (
       <RequiredAuth>
@@ -106,7 +132,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}patients/add-patients`,
+    path: `${process.env.REACT_APP_URL_Publish}add-patients`,
     element: (
       <RequiredAuth>
         <Layout>

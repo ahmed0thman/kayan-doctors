@@ -5,7 +5,7 @@ const SettingsNav = ({active}:{
   active:"basic" | "prescription"
 }) => {
   return (
-    <div className="d-flex gap-3 settings-nav">
+    <div className="d-flex gap-3 sub-page-nav">
         <Link to={"/settings"}>
           <button className={`btn ${active==='basic'? "btn-secondary": "btn-primary"}`}>
             Settings

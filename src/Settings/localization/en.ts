@@ -1,4 +1,5 @@
 export const en={
+  welcome:'welcome',
   home:'home',
   easy:'easy',
   drEasy:'dr easy',
@@ -9,5 +10,18 @@ export const en={
   allPatients:'all patients',
   live:'live',
   medicalTest:'medical test',
-  accountReports:'account reports'
+  accountReports:'account reports',
+  settings:'settings',
+  changePassword:'change password',
+  changelanguage: 'change language',
+  logout:'logout',
+  english:'english',
+  arabic:'arabic',
+  save:'save',
+  inputs:'inputs',
+  expense: 'expense',
+  netprofit:'net profit',
+  up: 'up',
+  down: 'down',
+  fromYesterday: 'from yesterday',
 }

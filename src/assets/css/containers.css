@@ -36,3 +36,9 @@ main{
     height: 100vh;
   }
 }
+
+section{
+  background-color: #fff;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+}

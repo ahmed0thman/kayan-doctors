@@ -17,6 +17,7 @@ const Header = () => {
 
   const currentActivePage = useSelector(activePage)
   const {user} = useSelector(loggedUserState);
+  const userPrefix = user.role === userRole.DOCTOR?'Dr': '';
 
 
   const HandleLogout = ()=>{
@@ -32,7 +33,7 @@ const Header = () => {
         <h2 className="title">
           {
             currentActivePage===strings.home
-            ? `welcome Dr ${user.ProfileName}`
+            ? `${strings.welcome} ${userPrefix} ${user.ProfileName}`
             : currentActivePage
           }
         </h2>
@@ -63,7 +64,7 @@ const Header = () => {
         <div className="account-user-info">
           <img src={person} alt="" className="profile-img" />
           <p className="user-name">
-            Dr.{user.ProfileName}
+          {userPrefix} {user.ProfileName}
           </p>
           <div className="user-options">
             <i onClick={HandleShowOptions}
@@ -72,22 +73,22 @@ const Header = () => {
             <ul className={`options-list ${showOptions && "show"}`}>
               <li className="option">
                 <Link to={`${process.env.REACT_APP_URL_Publish}settings`}>
-                  Settings
+                  {strings.settings}
                 </Link>
               </li>
               <li className="option">
                 <Link to={`${process.env.REACT_APP_URL_Publish}settings/change-password`}>
-                  Change Password
+                  {strings.changePassword}
                 </Link>
               </li>
               <li className="option">
                 <Link to={`${process.env.REACT_APP_URL_Publish}settings/change-language`}>
-                  Change Language
+                {strings.changelanguage}
                 </Link>
               </li>
               <li className="option">
                 <span onClick={HandleLogout}>
-                  Logout
+                {strings.logout}
                 </span>
               </li>
             </ul>

@@ -1,8 +1,39 @@
-import React from 'react'
+import React, { ReactNode, useEffect } from 'react'
+import SubNav from '../../Components/SubNav/SubNav'
+import userIcon from '../../assets/images/icons/user-white.svg'
+import { useNavigate } from 'react-router-dom'
 
-const Easy = () => {
+
+
+const Easy = ({children}:{children?:ReactNode}) => {
+  const navigate = useNavigate()
+  
+  useEffect(()=>{
+    if(!children){
+      navigate('/easy/allPatient')
+    }
+  },[])
+  
+  const subNavLinks=[
+    {
+      target: `/easy/allPatient`,
+      title: 'all patient',
+      icon: userIcon
+    },
+    {
+      target: `/easy/newPatient`,
+      title: 'add new patient',
+      icon: userIcon
+    },
+  ]
+  
   return (
-    <div>Easy</div>
+    <>
+      <SubNav
+        subNavLinks={subNavLinks}
+      />
+      {children}
+    </>
   )
 }
 

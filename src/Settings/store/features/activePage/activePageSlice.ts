@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {ROOT_STATE } from "../../store";
+import { strings } from "../../../localization/strings";
 
 
-const initialState = 'home'
+const initialState = strings.home
 
 const activePageSlice = createSlice({
   name: 'activePage',
