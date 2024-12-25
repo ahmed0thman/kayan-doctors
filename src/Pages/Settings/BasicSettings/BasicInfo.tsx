@@ -1,10 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 
 import defaultProfileImg from '../../../assets/images/gallery/profile.png'
 import ImageInput from '../../../Components/ImageInput'
 
 const BasicInfo = () => {
-  const imgRef = useRef<HTMLInputElement | null>(null)
   const [profileImg, setProfileImg] = useState<string>();
   return (
     <section className='setting-card'>
@@ -13,7 +12,7 @@ const BasicInfo = () => {
       </h4>
       <div className="setting-form">
 
-      <ImageInput img={profileImg as string}  setImg={setProfileImg} defaultImg={defaultProfileImg}/>
+        <ImageInput img={profileImg as string} setImg={setProfileImg} defaultImg={defaultProfileImg} />
 
         <div className="row flex-grow-1">
           <div className="col-12 col-lg-6">
@@ -51,8 +50,8 @@ const BasicInfo = () => {
         </div>
       </div>
       <button className="btn btn-primary btn-submit">
-          Update Data
-        </button>
+        Update Data
+      </button>
     </section>
   )
 }

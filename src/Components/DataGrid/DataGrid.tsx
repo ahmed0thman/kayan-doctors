@@ -4,15 +4,21 @@ import { AgGridReact } from 'ag-grid-react'
 import { themeQuartz, ColDef, AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
-const DataGrid = ({dataSource,columns, onGridReady}:{
+const DataGrid = ({dataSource,columns,pageSize=6,colWidth=150, onGridReady}:{
   dataSource:any,
   columns: any,
-  onGridReady:any
+  pageSize?:number,
+  colWidth?: number,
+  onGridReady?:any
 }) => {
   const [filterText, setFilterText] = useState<string|null>()
   const dataGridTheme = themeQuartz.withParams({
     spacing: 18.5,
   });
+  const [cols, setCols] = useState<any>([
+    { field: "#" as any, width:120, valueGetter: (params:any) => params.node.rowIndex + 1 },
+    ...(Object.keys(columns)).map(field => ({ field: field, flex: 1, minWidth:colWidth })),
+  ])
   return (
     <>
       <DataFilter 
@@ -23,10 +29,10 @@ const DataGrid = ({dataSource,columns, onGridReady}:{
         <AgGridReact
           quickFilterText={filterText as string}
           rowData={dataSource}
-          columnDefs={columns}
+          columnDefs={cols}
           theme={dataGridTheme}
           pagination
-          paginationPageSize={6}
+          paginationPageSize={pageSize}
           onGridReady={onGridReady}
           // paginationPageSizeSelector = {[6,10]}
         />

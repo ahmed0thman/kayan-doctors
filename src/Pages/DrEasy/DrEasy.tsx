@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import DataGrid from '../../Components/DataGrid/DataGrid'
+import { drEasyPatient, pateints } from './types'
 
 const DrEasy = () => {
+  const [allPatient, setAllPatient] = useState<drEasyPatient[]>(pateints)
   return (
-    <div>DrEasy</div>
+    <DataGrid
+    // dataSource={posts}
+    // columns={columnDefs}
+    dataSource={allPatient}
+    columns={pateints[0]}
+    pageSize={8}
+    colWidth={170}
+    // onGridReady={onGridReady}
+  />
   )
 }
 

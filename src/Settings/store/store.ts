@@ -4,6 +4,7 @@ import loadingReducer from './features/loading/loadingSlice'
 import activePageReducer from './features/activePage/activePageSlice'
 import languageReducer from './features/language/languageSlice'
 import authedReducer from './features/authentication/authedSlice'
+import perscriptionReducer from './features/prescriptions/prescriptionSlice'
 
 export const store = configureStore({
   reducer:{
@@ -11,7 +12,8 @@ export const store = configureStore({
     loading: loadingReducer,
     activePage: activePageReducer,
     language: languageReducer,
-    authed: authedReducer
+    authed: authedReducer,
+    prescription: perscriptionReducer
   }
 })
 

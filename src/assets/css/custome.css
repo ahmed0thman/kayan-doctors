@@ -235,6 +235,9 @@ a.btn{
   margin-block: 0.5rem;
   align-self: flex-end;
   width: 152px !important;
+  display: block;
+  justify-self: end;
+  margin-top: 2rem;
 }
 .form-label{
   color: var(--color-secondary);

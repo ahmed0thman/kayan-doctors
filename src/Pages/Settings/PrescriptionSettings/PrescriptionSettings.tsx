@@ -1,14 +1,34 @@
 import React, { useRef, useState } from 'react'
 import SettingsNav from '../SettingsNav'
 import ImageInput from '../../../Components/ImageInput';
+import { useDispatch, useSelector } from 'react-redux';
+import { prescriptionState, setPrescription } from '../../../Settings/store/features/prescriptions/prescriptionSlice';
+import { prescription, specialization } from '../../../Settings/store/features/prescriptions/types';
+import { APP_DISPATCH } from '../../../Settings/store/store';
+import ModalSuccess from '../../../Components/ModalSuccess/ModalSuccess';
 
 const PrescriptionSettings = () => {
-  const logoRef = useRef<HTMLInputElement | null>(null);
-  const sealRef = useRef<HTMLInputElement | null>(null);
+  const dispatch = useDispatch<APP_DISPATCH>();
   const [logoImg, setLogoImg] = useState<string>();
   const [sealImg, setSealImg] = useState<string>();
+  const prescription = useSelector(prescriptionState)
+  const [presc, setPresc] = useState<prescription>(prescription)
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleCloseSuccess = () => setShowSuccess(false);
+  const handleShowSuccess = () => setShowSuccess(true);
+
+  const HandleSave = () =>{
+    dispatch(setPrescription(presc))
+    handleShowSuccess()
+  }
   return (
     <>
+    <ModalSuccess
+        msg='Prescriptions Data Updated successfully.'
+        show={showSuccess}
+        handleClose={handleCloseSuccess}
+      />
       <SettingsNav active="prescription" />
       <section className='setting-card'>
         <h4 className="heading">
@@ -20,7 +40,8 @@ const PrescriptionSettings = () => {
               <label htmlFor='name' className="form-label">
                 Name
               </label>
-              <input type="text" name="name" id="name" className="form-control" placeholder='Please enter your name' />
+              <input type="text" name="name" id="name" className="form-control" placeholder='Please enter your name' value={presc.name} 
+              onChange={(e)=> setPresc({...presc, name:e.currentTarget.value})}/>
             </div>
           </div>
           <div className="col-12 col-lg-6">
@@ -28,7 +49,14 @@ const PrescriptionSettings = () => {
               <label htmlFor='specialization' className="form-label">
                 Specialization
               </label>
-              <input type="text" name="specialization" id="specialization" className="form-control" placeholder='Please enter your Specialization' />
+              <select name="specialization" id="specialization" className="form-select"
+              value={presc.specialization}
+              onChange={(e)=> setPresc({...presc, specialization:e.currentTarget.value as specialization})}>
+                <option value="">Please enter your Specialization</option>
+                {Object.values(specialization).map((spec) => ( 
+                  <option key={spec} value={spec}>{spec}</option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="col-12 col-lg-6">
@@ -36,7 +64,8 @@ const PrescriptionSettings = () => {
               <label htmlFor='phoneNumber' className="form-label">
                 Phone Number
               </label>
-              <input type="number" name="phoneNumber" id="phoneNumber" className="form-control" placeholder='Please enter your phone number' />
+              <input type="number" name="phoneNumber" id="phoneNumber" className="form-control" placeholder='Please enter your phone number' value={presc.phoneNumber} 
+              onChange={(e)=> setPresc({...presc, phoneNumber:e.currentTarget.value})}/>
             </div>
           </div>
           <div className="col-12 col-lg-6">
@@ -67,17 +96,19 @@ const PrescriptionSettings = () => {
             <h5 className="heading mb-3">
               logo
             </h5>
-            <ImageInput img={logoImg as string}  setImg={setLogoImg}/>
+            <ImageInput img={logoImg as string} setImg={setLogoImg} />
           </div>
           <div>
             <h5 className="heading mb-3">
               Seal
             </h5>
-            <ImageInput img={sealImg as string}  setImg={setSealImg}/>
+            <ImageInput img={sealImg as string} setImg={setSealImg} />
           </div>
         </div>
 
-        <button className="btn btn-primary btn-submit">
+        <button className="btn btn-primary btn-submit"
+          onClick={HandleSave}
+        >
           Update Data
         </button>
       </section>

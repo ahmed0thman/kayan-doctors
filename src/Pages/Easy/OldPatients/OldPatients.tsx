@@ -39,20 +39,14 @@ const OldPatients = () => {
       .then((data) => setPosts(data));
   }, []);
 
-  
-
-  useEffect(()=>{
-    console.log(posts)
-  },[posts])
-
   return (
     <>
       <DataGrid
         // dataSource={posts}
         // columns={columnDefs}
-        dataSource={posts}
-        columns={columnDefs}
-        onGridReady={onGridReady}
+        dataSource={allPatient}
+        columns={allPatient[0]}
+        // onGridReady={onGridReady}
       />
       
     </>

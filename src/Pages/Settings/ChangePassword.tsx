@@ -1,33 +1,22 @@
 import { useState } from 'react';
+import ModalSuccess from '../../Components/ModalSuccess/ModalSuccess';
 
 const ChangePassword = () => {
-  const [show, setShow] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleCloseSuccess = () => setShowSuccess(false);
+  const handleShowSuccess = () => setShowSuccess(true);
 
   const HandleSavePassword = ()=>{
-    handleShow()
+    handleShowSuccess()
   }
   return (
     <>
-      <div className={`modal ${show&&'show'}`}>
-        
-        <div className="modal-container">
-          <span className="btn btn-close"
-          onClick={handleClose}>
-          </span>
-          <div className="d-flex flex-column gap-4 align-items-center">
-            <div className="img-success"></div>
-            <h3 className="heading fw-bold">
-              Congratulations!
-            </h3>
-            <p className='sub-text text-center'>
-            Your password has been <br/> changed successfully.
-            </p>
-          </div>
-        </div>
-      </div>
+      <ModalSuccess
+        msg='Your password has been changed successfully.'
+        show={showSuccess}
+        handleClose={handleCloseSuccess}
+      />
       <div className="setting-card bg-transparent" style={{ maxWidth: "900px" }}>
         <div className="form-group">
           <label htmlFor="newPassword" className="form-label">

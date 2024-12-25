@@ -3,7 +3,7 @@ export const en={
   home:'home',
   easy:'easy',
   drEasy:'dr easy',
-  reExamination: 'e-examination',
+  reExamination: 're-examination',
   addPatient: 'add-patients',
   followingUP: 'following up',
   examination:'examination',
