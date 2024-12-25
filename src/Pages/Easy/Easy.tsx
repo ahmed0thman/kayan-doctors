@@ -12,7 +12,7 @@ const Easy = ({children}:{children?:ReactNode}) => {
     if(!children){
       navigate('/easy/allPatient')
     }
-  },[])
+  },[navigate])
   
   const subNavLinks=[
     {

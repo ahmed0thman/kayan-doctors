@@ -28,7 +28,7 @@ const Home = () => {
     value: 60,
   };
   return (
-    <section className="home">
+    <div className="home">
       <div className="cards">
         {statsList.map((ele: statsCard, index) => (
           <StatsCard key={index} stats={ele} />
@@ -58,7 +58,7 @@ const Home = () => {
         />
 
       </div>
-    </section>
+    </div>
   )
 }
 

@@ -240,6 +240,7 @@
 
 /* Home */
 .home{
+  padding: 1rem;
   .cards{
     display: flex;
     flex-wrap: wrap;
@@ -306,8 +307,9 @@
     }
 
     .chart-card{
-      width: 544px;
+      min-width: 350px;
       height: 362px;
+      flex-grow: 1;
       padding: 1.5rem;
       padding-bottom: 3.5rem;
       background-color: #fff;

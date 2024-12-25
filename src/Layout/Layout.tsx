@@ -26,7 +26,7 @@ const Layout = (props: Props) => {
       <main>
         <Header />
         <div className="page">
-          <div className="wrapper h-100 fade show">
+          <div className="wrapper fade show" style={{minHeight: "100%"}}>
             {
               (loading && <Loading/>) ||(
                 props.children
