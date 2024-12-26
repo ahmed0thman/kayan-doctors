@@ -19,6 +19,9 @@ import PrescriptionSettings from "../../Pages/Settings/PrescriptionSettings/Pres
 import ChangePassword from "../../Pages/Settings/ChangePassword";
 import ChangeLanguage from "../../Pages/Settings/ChangeLanguage";
 import RequiredAuth from "../../Settings/authentication/RequiredAuth";
+import NewReservation from "../../Pages/Patients/AddPatient/NewReservation/NewReservation";
+import OldReservation from "../../Pages/Patients/AddPatient/OldReservation/OldReservation";
+import OnlineReservation from "../../Pages/Patients/AddPatient/OnlineReservation/OnlineReservation";
 
 export const router = createBrowserRouter([
   {
@@ -137,6 +140,42 @@ export const router = createBrowserRouter([
       <RequiredAuth>
         <Layout>
           <AddPatient />
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}add-patients/new-reservation`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <AddPatient>
+            <NewReservation />
+          </AddPatient>
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}add-patients/old-reservation`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <AddPatient>
+            <OldReservation />
+          </AddPatient>
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}add-patients/online-reservation`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <AddPatient>
+            <OnlineReservation />
+          </AddPatient>
         </Layout>
       </RequiredAuth>
     )

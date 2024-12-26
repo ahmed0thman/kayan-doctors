@@ -25,6 +25,15 @@
   color: var(--color-secondary);
 }
 
+.heading,
+.heading-xs,
+.heading-sm,
+.heading-md,
+.heading-lg,
+.heading-xl{
+  text-transform: capitalize;
+}
+
 .heading-md{
   color: var(--color-primary);
   font-size: 24px;
@@ -376,6 +385,13 @@ input[type="text"]{
   
 }
 
+.badge-primary{
+  background-color: var(--color-primary);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  width: fit-content;
+}
+
 .paginationjs-pages{
   direction: ltr;
   margin-top: 2rem;
@@ -723,4 +739,17 @@ table{
   .btn{
     text-transform: capitalize;
   }
+}
+
+.css-189ousr-MuiPopper-root-MuiPickersPopper-root{
+  z-index: 100000;
+}
+.css-1ll44ll-MuiOutlinedInput-notchedOutline{
+  border: none !important;
+}
+.css-oeq6yz-MuiButtonBase-root-MuiIconButton-root{
+  padding: 0 !important;
+}
+.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root.Mui-selected{
+  background-color: var(--color-primary) !important;
 }
