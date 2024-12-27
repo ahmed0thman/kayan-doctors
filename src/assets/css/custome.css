@@ -742,7 +742,7 @@ table{
 }
 
 .css-189ousr-MuiPopper-root-MuiPickersPopper-root{
-  z-index: 100000;
+  z-index: 100000 !important;
 }
 .css-1ll44ll-MuiOutlinedInput-notchedOutline{
   border: none !important;
@@ -753,3 +753,23 @@ table{
 .css-qct7wd-MuiButtonBase-root-MuiPickersDay-root.Mui-selected{
   background-color: var(--color-primary) !important;
 }
+
+.ag-checkbox-input-wrapper{
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  opacity: 0;
+  &:where(.ag-checked){
+    filter: revert;
+    opacity: 1;
+    background-color: #79d97d;
+    border: none;
+    &::after{
+      zoom: 1.4;
+    }
+
+
+  }
+  
+}
+/* .ag-radio-button-input-wrapper { */

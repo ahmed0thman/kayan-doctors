@@ -10,7 +10,7 @@ const DrEasy = () => {
     // columns={columnDefs}
     dataSource={allPatient}
     columns={pateints[0]}
-    pageSize={8}
+    pageSize={7}
     colWidth={170}
     // onGridReady={onGridReady}
   />

@@ -133,4 +133,20 @@ section{
   .ag-root-wrapper{
     color: var(--color-secondary);
   }
+
+  .ag-filter-body-wrapper{
+    .ag-picker-field-wrapper,
+    .ag-input-field-input.ag-text-field-input{
+      min-height: 2rem;
+    }
+
+    .ag-input-field-input.ag-text-field-input{
+      padding-inline: 1rem;
+      
+    }
+    .ag-input-wrapper:before{
+      inset-inline-end: 1rem;
+      display: none;
+    }
+  }
 }

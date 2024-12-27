@@ -1,0 +1,171 @@
+.hn-datepicker {
+
+  input:focus,
+  input:active {
+    outline: none;
+    border: none;
+
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  border: 1px solid #aaa;
+  position: relative;
+  border-radius: 4px;
+
+  .hn-datepicker-input {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    input[type="text"] {
+      flex-grow: 1;
+      border: none;
+    }
+
+    .open-datepicker {
+      position: absolute;
+      inset-inline-end: 0.5rem;
+      top: 0;
+      height: 100%;
+
+    }
+  }
+
+  .hn-datepicker-dialog {
+    display: none;
+    box-shadow: 0 0 4px #4d484835;
+    position: absolute;
+    inset-inline-start: 0;
+    transform: translateY(2px);
+    padding: 0.5rem;
+    width: max-content;
+    height: fit-content;
+    border: inherit;
+    background-color: #fff;
+    .hn-datepicker-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* position: relative; */
+      height: 20px;
+
+      select {
+        overflow-y: auto;
+        padding: 0 0.25rem;
+        z-index: 10;
+      }
+
+      .current-view {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+
+        .title,
+        button {
+          cursor: pointer;
+        }
+
+        svg {
+          width: 10px;
+        }
+
+
+      }
+
+      .select-today {
+        /* position: absolute;
+        inset-inline-end:0;
+        top: 0; */
+        cursor: pointer;
+      }
+    }
+
+    .days {
+      width: 100%;
+
+      .week-days {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1px;
+
+        span {
+          font-size: 14px;
+          font-weight: 600;
+          width: 28px;
+          text-align: center;
+        }
+      }
+
+      .days-container {
+        display: grid;
+        grid-template-columns: repeat(7, 28px);
+        gap: 1px;
+
+        .day {
+          text-align: center;
+          cursor: pointer;
+
+          &.active {
+            background-color: #ddd;
+          }
+
+          &.sub {
+            opacity: 0.4;
+            cursor: revert;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+
+    .hn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.25rem;
+
+      .month-year-card {
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        padding: 0.3rem;
+        text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+
+        &.active {
+          background-color: #ddd;
+        }
+      }
+    }
+  }
+
+  &.open {
+    .hn-datepicker-dialog {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+  }
+
+  svg {
+    width: 15px;
+  }
+}
+
+html[dir="rtl"] {
+  svg {
+    transform: rotateY(180deg);
+  }
+}

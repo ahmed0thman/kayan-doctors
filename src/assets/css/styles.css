@@ -242,6 +242,8 @@
 /* Home */
 .home{
   padding: 1rem;
+  max-width: 1170px;
+  margin: 0 auto;
   .cards{
     display: flex;
     flex-wrap: wrap;

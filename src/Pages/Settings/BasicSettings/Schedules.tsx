@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
-import { enUS } from 'date-fns/locale/en-US';
+import { enUS } from 'date-fns/locale';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimeClock } from '@mui/x-date-pickers/TimeClock';
 import { format } from 'date-fns';
