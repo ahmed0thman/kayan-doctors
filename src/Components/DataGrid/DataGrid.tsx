@@ -50,7 +50,7 @@ const DataGrid = ({dataSource,columns,pageSize=6,colWidth=150, onGridReady}:{
           pagination
           paginationPageSize={pageSize}
           onGridReady={onGridReady}
-          // paginationPageSizeSelector = {[6,10]}
+          paginationPageSizeSelector = {[pageSize,2*pageSize]}
         />
       </section>
     </>
