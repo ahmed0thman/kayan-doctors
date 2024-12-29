@@ -228,6 +228,16 @@ a.btn{
   }
 }
 
+.btn-dark-green{
+  color: #fff !important;
+  border-color: var(--dark-green) !important;
+  background-color: var(--dark-green) !important;
+
+  &:hover{
+    opacity: 0.75;
+  }
+}
+
 .btn-secondary{
   color: #fff !important;
   border-color: var(--color-secondary) !important;

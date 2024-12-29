@@ -10,11 +10,6 @@ const DataFilter = ({ filterText, setFilterText }:
     filterText: string | null,
     setFilterText: any
   }) => {
-    const [date, setDate] = useState<Date>();
-
-    useEffect(()=>{
-      console.log(date)
-    },[date])
   return (
     <section className="grid-filter">
       

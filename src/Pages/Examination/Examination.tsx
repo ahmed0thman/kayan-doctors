@@ -1,8 +1,34 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import newIcon from './imgs/new.svg'
+import resumptionIcon from './imgs/resumption.svg'
+import waitingIcon from './imgs/waiting.svg'
 
 const Examination = () => {
   return (
-    <div>Examination</div>
+    <div className="examination">
+      <Link className="btn btn-secondary" to={'/examination/new'}>
+        {/* <i className="fa fa-slack" aria-hidden="true"></i> */}
+        <img src={newIcon} alt="" />
+        <p>
+          New
+        </p>
+      </Link>
+      <Link className="btn btn-primary" to={'/examination/resumption'}>
+        {/* <i className="fa fa-exclamation-circle" aria-hidden="true"></i> */}
+        <img src={resumptionIcon} alt="" />
+        <p>
+          Resumption
+        </p>
+      </Link>
+      <Link className="btn btn-dark-green" to={'/examination/waiting'}>
+        {/* <i className="fa fa-exclamation-circle" aria-hidden="true"></i> */}
+        <img src={waitingIcon} alt="" />
+        <p>
+          Waiting
+        </p>
+      </Link>
+    </div>
   )
 }
 

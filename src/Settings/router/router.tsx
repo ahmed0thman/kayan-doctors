@@ -22,6 +22,8 @@ import RequiredAuth from "../../Settings/authentication/RequiredAuth";
 import NewReservation from "../../Pages/Patients/AddPatient/NewReservation/NewReservation";
 import OldReservation from "../../Pages/Patients/AddPatient/OldReservation/OldReservation";
 import OnlineReservation from "../../Pages/Patients/AddPatient/OnlineReservation/OnlineReservation";
+import New from "../../Pages/Examination/New/New";
+import NewDetails from "../../Pages/Examination/New/NewDetails";
 
 export const router = createBrowserRouter([
   {
@@ -196,6 +198,26 @@ export const router = createBrowserRouter([
       <RequiredAuth>
         <Layout>
           <Examination />
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}examination/new`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <New />
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}examination/new/:code`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <NewDetails />
         </Layout>
       </RequiredAuth>
     )
