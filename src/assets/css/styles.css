@@ -65,7 +65,7 @@
 
   .logo-wrapper{
     padding-block: 1.5rem;
-    padding-inline-start: 1.25rem;
+    padding-inline-start: 1rem;
     margin-bottom: 0.5rem;
     .logo{
       width: 170px;
@@ -78,7 +78,7 @@
     .nav-link{
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 1rem;
       padding: 1rem 1.5rem;
       color: var(--color-secondary);
       font-size: 1rem;
@@ -472,7 +472,7 @@
   .patient-avatar{
     flex: 1;
     min-width: 350px;
-    min-height: 330px;
+    min-height: 295px;
     position: relative;
     .avatar-bg,
     .avatar{
@@ -557,12 +557,12 @@
       }
       .label{
         margin-inline-end: 0.5rem;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 500;
       }
 
       .value{
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 300;
       }
     }

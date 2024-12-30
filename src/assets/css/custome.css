@@ -31,11 +31,20 @@
 .heading-md,
 .heading-lg,
 .heading-xl{
+  color: var(--color-secondary);
   text-transform: capitalize;
 }
 
+.heading{
+  display: flex;
+  align-items: center;
+  img{
+    margin-inline-end: 0.5rem;
+  }
+}
+
 .heading-md{
-  color: var(--color-primary);
+  
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
@@ -257,6 +266,7 @@ a.btn{
   display: block;
   justify-self: end;
   margin-top: 2rem;
+  text-transform: capitalize;
 }
 .form-label{
   color: var(--color-secondary);
@@ -297,6 +307,10 @@ input[type="text"]{
 .form-control:focus{
   box-shadow: 0 0 1px var(--color-primary);
   
+}
+
+textarea.form-control{
+  min-height: 130px;
 }
 
 .img-input{
@@ -704,6 +718,13 @@ table{
   width: 177px;
   height: 177px;
   background-image: url('../images/icons/success.png');
+}
+
+.data-table{
+  width: calc(100% + 4rem);
+  text-align: center;
+  margin-inline: -2rem;
+  margin-bottom: -1.5rem;
 }
 
 
