@@ -24,6 +24,8 @@ import OldReservation from "../../Pages/Patients/AddPatient/OldReservation/OldRe
 import OnlineReservation from "../../Pages/Patients/AddPatient/OnlineReservation/OnlineReservation";
 import New from "../../Pages/Examination/New/New";
 import NewDetails from "../../Pages/Examination/New/NewDetails";
+import Resumption from "../../Pages/Examination/Resumption/Resumption";
+import Waiting from "../../Pages/Examination/Waiting/Waiting";
 
 export const router = createBrowserRouter([
   {
@@ -208,6 +210,26 @@ export const router = createBrowserRouter([
       <RequiredAuth>
         <Layout>
           <New />
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}examination/resumption`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Resumption />
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}examination/waiting`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Waiting />
         </Layout>
       </RequiredAuth>
     )

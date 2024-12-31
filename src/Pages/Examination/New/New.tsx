@@ -9,11 +9,8 @@ import { useNavigate } from 'react-router-dom';
 const New = () => {
   const [allPatient, setAllPatients] = useState<patientEasy[]>(oldPateint)
   const dispatch = useDispatch<APP_DISPATCH>();
+  dispatch(setActivePage('Today New Examination'))
   const navigate = useNavigate();
-
-  useEffect(()=>{
-    dispatch(setActivePage('Today New Examination'))
-  },[])
 
   const HandleRowDblClicked = (e: RowDoubleClickedEvent<patientEasy>)=>{
     navigate(`/examination/new/${e.data?.code}`, { state: e.data })

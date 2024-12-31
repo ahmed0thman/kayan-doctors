@@ -175,8 +175,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .btn:active{
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  border: none;
 }
 
 a.btn{
@@ -719,6 +718,27 @@ table{
   height: 177px;
   background-image: url('../images/icons/success.png');
 }
+
+.badge{
+  width: 120px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  padding-block: 6px;
+  border-radius: 6px;
+  text-transform: capitalize;
+  
+  &.green{
+    background-color: rgba(71,247,84, 0.15);
+    color: var(--green-2);
+  }
+  &.orange{
+    background-color: rgba(247,152,29, 0.15);
+    color: var(--orange-2);
+  }
+}
+
 
 .data-table{
   width: calc(100% + 4rem);

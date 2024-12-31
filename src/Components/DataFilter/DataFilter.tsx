@@ -1,8 +1,6 @@
 import searchIcon from '../../assets/images/icons/search.svg'
 import calenderIcon from '../../assets/images/icons/calender.svg'
 import filtersIcon from '../../assets/images/icons/filters.svg'
-import React, { useEffect, useRef, useState } from 'react'
-import DatePickerRange from '../HnDatePicker/DatePickerRange'
 
 
 const DataFilter = ({ filterText, setFilterText }:
@@ -20,18 +18,15 @@ const DataFilter = ({ filterText, setFilterText }:
           value={filterText as string}
         />
       </div>
-      <button className="btn btn-outline-secondary btn-filter">
+      {/* <button className="btn btn-outline-secondary btn-filter">
         <img src={calenderIcon} alt="" />
         
         select date
-      </button>
-      {/* <DatePickerRange
-        onChange={setDate}
-      /> */}
-      <button className="btn btn-outline-secondary btn-filter">
+      </button> */}
+      {/* <button className="btn btn-outline-secondary btn-filter">
         <img src={filtersIcon} alt="" />
         filters
-      </button>
+      </button> */}
       <button className="btn btn-filter btn-primary "
         onClick={() => setFilterText('')}
       >

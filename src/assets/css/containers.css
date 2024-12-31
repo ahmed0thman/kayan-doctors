@@ -55,6 +55,7 @@ section {
     line-height: 20px;
     border-bottom: none;
     .ag-cell {
+      text-align: center;
       &:focus-within {
         border: none;
       }
@@ -71,6 +72,10 @@ section {
     }
     .ag-header-cell {
       height: 50px !important;
+    }
+
+    .ag-header-cell-label {
+      justify-content: center;
     }
 
     .ag-header-cell-text {

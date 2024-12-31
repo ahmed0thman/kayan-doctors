@@ -3,8 +3,13 @@ import { Link } from 'react-router-dom'
 import newIcon from './imgs/new.svg'
 import resumptionIcon from './imgs/resumption.svg'
 import waitingIcon from './imgs/waiting.svg'
+import { useDispatch } from 'react-redux'
+import { APP_DISPATCH } from '../../Settings/store/store'
+import { setActivePage } from '../../Settings/store/features/activePage/activePageSlice'
 
 const Examination = () => {
+  const dispatch = useDispatch<APP_DISPATCH>()
+  dispatch(setActivePage('Examination'))
   return (
     <div className="examination">
       <Link className="btn btn-secondary" to={'/examination/new'}>

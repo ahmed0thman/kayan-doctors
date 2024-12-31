@@ -20,7 +20,7 @@ const PatientInfoCard = ({patientInfo}:{
           <img className='avatar' src={patientInfo?.gender === 'Male'?maleIcon:femaleIcon} alt="" />
           <div className="last-examination-date">
             
-            <p className="heading">
+            <p className="heading justify-content-center">
               <img className='mx-1' src={calenderIcon} alt="" />
               last examination date
             </p>

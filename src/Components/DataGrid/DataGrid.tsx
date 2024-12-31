@@ -7,13 +7,13 @@ import {
   ModuleRegistry,
 } from "ag-grid-community";
 import NoData from "../NoData";
-import { provideGlobalGridOptions } from "ag-grid-community";
+import { RowDragModule,provideGlobalGridOptions } from "ag-grid-community";
 import { AG_GRID_LOCALE_EG } from "./arEG";
 import { useSelector } from "react-redux";
 import { language } from "../../Settings/store/features/language/languageSlice";
 import { AG_GRID_LOCALE_EN } from "./enUS";
 
-ModuleRegistry.registerModules([AllCommunityModule]);
+ModuleRegistry.registerModules([AllCommunityModule,RowDragModule]);
 const DataGrid = ({
   dataSource,
   columns,
@@ -21,13 +21,15 @@ const DataGrid = ({
   colWidth = 150,
   onGridReady,
   onRowDoubleClicked,
+  rowDrag=false
 }: {
   dataSource: Array<any>,
   columns: any,
   pageSize?: number,
   colWidth?: number,
   onGridReady?: any,
-  onRowDoubleClicked?:any
+  onRowDoubleClicked?:any,
+  rowDrag?:boolean
 }) => {
   const lan = useSelector(language);
 
@@ -35,19 +37,31 @@ const DataGrid = ({
   const dataGridTheme = themeQuartz.withParams({
     spacing: 18.5,
   });
-  const [cols, setCols] = useState<any>([
-    {
-      field: "#" as any,
-      width: 120,
-      valueGetter: (params: any) => params.node.rowIndex + 1,
-    },
-    ...Object.keys(columns).map((field) => ({
-      field: field,
-      filter: true,
-      flex: 1,
-      minWidth: colWidth,
-    })),
-  ]);
+  const [cols, setCols] = useState<Array<any>>();
+  
+  useEffect(()=>{
+    if(Array.isArray(columns)){
+      setCols(columns)
+    }
+    else{
+      setCols(
+        [
+          {
+            field: "#" as any,
+            width: 120,
+            valueGetter: (params: any) => params.node.rowIndex + 1,
+            rowDrag: rowDrag
+          },
+          ...Object.keys(columns).map((field) => ({
+            field: field,
+            filter: true,
+            flex: 1,
+            minWidth: colWidth,
+          })),
+        ]
+      )
+    }
+  },[columns])
 
   useEffect(() => {
     provideGlobalGridOptions({
@@ -71,6 +85,9 @@ const DataGrid = ({
           onGridReady={onGridReady}
           paginationPageSizeSelector={[pageSize, 2 * pageSize]}
           onRowDoubleClicked={onRowDoubleClicked}
+          rowDragManaged={rowDrag}
+          enableRtl={lan==='ar'}
+          suppressScrollOnNewData={true}
         />
       </section>
     </>
