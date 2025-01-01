@@ -3,7 +3,7 @@ import { prescription, specialization } from "./types";
 import { ROOT_STATE } from "../../store";
 
 const initialState:prescription = {
-  name: 'mohamed',
+  name: 'mohamed amer',
   phoneNumber: '01116618800',
   specialization: specialization.GENERAL,
 }
