@@ -26,6 +26,7 @@ import New from "../../Pages/Examination/New/New";
 import NewDetails from "../../Pages/Examination/New/NewDetails";
 import Resumption from "../../Pages/Examination/Resumption/Resumption";
 import Waiting from "../../Pages/Examination/Waiting/Waiting";
+import PatientArchive from "../../Pages/Patients/AllPatients/PatientArchive/PatientArchive";
 
 export const router = createBrowserRouter([
   {
@@ -250,6 +251,16 @@ export const router = createBrowserRouter([
       <RequiredAuth>
         <Layout>
           <AllPatients />
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}patients/archive/:code`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <PatientArchive />
         </Layout>
       </RequiredAuth>
     )

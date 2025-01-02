@@ -8,5 +8,6 @@ export interface medicine{
 export interface medicalFile{
   name: string,
   file:any,
-  note?:string
+  note?:string,
+  date?:Date
 }

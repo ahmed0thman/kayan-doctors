@@ -292,6 +292,12 @@ input[type="text"] {
   }
 }
 
+input:disabled{
+  color: #5e5e5e;
+  opacity: 0.6;
+  background-color: var(--color-gray-1) !important;
+}
+
 .form-control:focus {
   box-shadow: 0 0 1px var(--color-primary);
 }
@@ -765,18 +771,30 @@ table {
 
 .modal.prescription {
   min-height: 100vh;
+  /* position: relative; */
+  flex-direction: column;
   .scroll-wrapper{
     height: 90vh;
     width: 100vw;
     overflow-y: auto;
+    position: relative;
+    
+  }
+
+  .btn-print{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 0.5rem;
+    inset-inline-start: 50%;
+    transform: translate(-550px);
+    margin-bottom: 0.5rem;
   }
   .modal-container {
     margin: 0 auto;
     overflow: hidden;
-    position: relative;
-    min-width: 992px;
-    max-width: 1200px;
-    width: 90vw;
+    min-width: 1000px;
+    max-width: 1000px;
     height: max-content;
     max-height: unset;
     border-radius: 0;
@@ -900,3 +918,33 @@ table {
   }
 }
 /* .ag-radio-button-input-wrapper { */
+
+
+.preview{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: fit-content;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  object-position: center;
+  display: none;
+  z-index: 100000;
+}
+@media print {
+
+  body{
+    width: 1000px !important;
+  }
+  body *{
+    display: none;
+  }
+  .preview{
+    display: block !important;
+  }
+}
+
+
+

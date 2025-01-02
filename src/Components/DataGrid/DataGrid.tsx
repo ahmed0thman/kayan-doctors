@@ -21,7 +21,8 @@ const DataGrid = ({
   colWidth = 150,
   onGridReady,
   onRowDoubleClicked,
-  rowDrag=false
+  rowDrag=false,
+  filter=false
 }: {
   dataSource: Array<any>,
   columns: any,
@@ -29,7 +30,8 @@ const DataGrid = ({
   colWidth?: number,
   onGridReady?: any,
   onRowDoubleClicked?:any,
-  rowDrag?:boolean
+  rowDrag?:boolean,
+  filter?:boolean
 }) => {
   const lan = useSelector(language);
 
@@ -70,10 +72,10 @@ const DataGrid = ({
   }, [lan]);
   return dataSource.length > 0 ? (
     <>
-      <DataFilter
+      {filter && <DataFilter
         filterText={filterText as string}
         setFilterText={setFilterText}
-      />
+      />}
       <section className="data-grid">
         <AgGridReact
           quickFilterText={filterText as string}

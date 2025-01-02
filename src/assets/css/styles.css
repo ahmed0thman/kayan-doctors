@@ -570,3 +570,43 @@
 }
 
 
+.prescription-card{
+  padding: 1.5rem 2rem;
+  background-color: var(--blue-light-2);
+  margin-bottom: 0.4rem;
+  position: relative;
+  cursor: pointer;
+  .medicine-list{
+    list-style-type: disc;
+    color: var(--color-secondary);
+    margin-top: 1.5rem;
+
+    li{
+      
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 20px;
+      margin-bottom: 1.2rem;
+      &::before{
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+      }
+      
+    }
+    
+    
+  }
+  .btn-print{
+    position: absolute;
+    inset-inline-end: 1rem;
+    bottom: 1rem;
+    padding: 0.35rem 0.5rem;
+  }
+}
+
