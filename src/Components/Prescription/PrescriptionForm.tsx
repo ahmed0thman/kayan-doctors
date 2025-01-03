@@ -1,99 +1,104 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from "react";
 import logoIcon from "../../assets/images/icons/logo-2.svg";
-import { useSelector } from 'react-redux';
-import { prescriptionState } from '../../Settings/store/features/prescriptions/prescriptionSlice';
-import { format } from 'date-fns';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
-import domtoimage from 'dom-to-image';
+import { useSelector } from "react-redux";
+import { prescriptionState } from "../../Settings/store/features/prescriptions/prescriptionSlice";
+import { format } from "date-fns";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import domtoimage from "dom-to-image";
+import Loading from "../Loading";
 
 const PrescriptionForm = ({
   showPrescription,
   setShowPrescription,
   patientInfo,
-  consultationDate
-}:{
-  showPrescription:boolean,
-  setShowPrescription:any,
-  patientInfo:any,
-  consultationDate:any
+  consultationDate,
+}: {
+  showPrescription: boolean;
+  setShowPrescription: any;
+  patientInfo: any;
+  consultationDate: any;
 }) => {
   const prescription = useSelector(prescriptionState);
-  const prescriptionRef = useRef<HTMLDivElement|null>(null)
-  const previewRef = useRef<HTMLImageElement|null>(null)
+  const prescriptionRef = useRef<HTMLDivElement | null>(null);
+  const [previewElement, setPreviewElement] = useState<HTMLImageElement>(
+    document.createElement("img")
+  );
+  previewElement.className = "preview";
+  const [previewIsReady, setPreviewIsReady] = useState<boolean>(false);
+  
+  
+
+  useEffect(() => {
+    if (showPrescription) {
+      document.body.appendChild(previewElement);
+      printPrescription();
+      
+    }
+    else if(previewElement && document.body.contains(previewElement)){
+      document.body.removeChild(previewElement);
+      setPreviewIsReady(false);
+    }
+    return () => {
+      if (previewElement && document.body.contains(previewElement)) {
+        document.body.removeChild(previewElement);
+      }
+    };
+  }, [showPrescription]);
 
   const HandleHidePrescription = () => {
     setShowPrescription(false);
+    
   };
 
-  const printPrescription = async (input:HTMLDivElement) => {
-    if (input) {
-      // const canvas = await html2canvas(input,{
-      //   width: input.scrollWidth,
-      //   height: input.scrollHeight,
-      //   scale: 2
-      // })
-      input.style.margin = '0'
-      domtoimage.toPng(input,{
-
-        width: input.offsetWidth,
-        height: input.scrollHeight - 60
-      }).then((dataUrl) => {
-        if(dataUrl){
-          console.log(window.innerWidth)
-          
-          const img = document.createElement('img')
-          document.body.appendChild(img);
-          img.className = 'preview'
-          // 
-          // console.log(img.style.objectPosition)
-          img.src = dataUrl
-           // Append the 
-          // window.print();
-          // document.body.removeChild(img);
-        }
-        input.style.margin = '0 auto'
-      //   const pdf = new jsPDF({
-      //     orientation: "portrait",
-      //     unit: "px",
-      //     format:[canvas.width, canvas.height],
-      //     putOnlyUsedFonts: true,
-      //     floatPrecision: 16 
-      //   });
-      //   const imgWidth = pdf.internal.pageSize.getWidth();
-      //   const imgHeight = (canvas.height * imgWidth) / canvas.width; 
-  
-      //   let position = 0;
-  
-      //   pdf.addImage(dataUrl, "PNG",-180, position, imgWidth+400, imgHeight); // Set x=0 to remove left padding
-  
-      //   pdf.save(`${patientInfo?.code}_${format(consultationDate, 'yyyy-MM-dd')}.pdf`);
-      });
+  const printPrescription = () => {
+    if (prescriptionRef.current) {
+      const input = prescriptionRef.current;
+      input.style.margin = "0";
+      domtoimage
+        .toPng(input, {
+          width: input.offsetWidth,
+          height: input.scrollHeight - 60,
+        })
+        .then((dataUrl) => {
+          if (dataUrl) {
+            previewElement.src = dataUrl;
+          }
+          input.style.margin = "0 auto";
+          setPreviewIsReady(true);
+        });
     }
   };
   return (
-    <div
-        className={`modal prescription ${showPrescription && "show"}`}
+    <>
+
+    <div className={`modal ${showPrescription &&!previewIsReady && 'show'}`}>
+      <Loading/>
+    </div>
+      <div
+        className={`modal prescription ${
+          showPrescription && previewIsReady && "show"
+        }`}
         onClick={(e) =>
           e.currentTarget === e.target && HandleHidePrescription()
         }
       >
-        <button className="btn btn-primary btn-print"
-        onClick={()=>printPrescription(prescriptionRef.current as HTMLDivElement)}>
-        <i className="fa fa-print" aria-hidden="true"></i>
-        Print
-      </button>
-        <div className="scroll-wrapper" 
-        onClick={(e) =>
-          e.currentTarget === e.target && HandleHidePrescription()
-        }>
+        <div
+          className="scroll-wrapper"
+          onClick={(e) =>
+            e.currentTarget === e.target && HandleHidePrescription()
+          }
+        >
           {/* <img ref={previewRef} src="" alt="" className="preview" /> */}
           <div ref={prescriptionRef} className="modal-container">
             <h4 className="heading">prescription</h4>
             <div className="prescription-header">
               <img src={logoIcon} alt="" />
               <div className="doctor-info">
-                <h2 className="heading">Dr. {prescription.name.split(' ')[0]} {prescription.name.split(' ')[1]}</h2>
+                <h2 className="heading">
+                  Dr. {prescription.name.split(" ")[0]}{" "}
+                  {prescription.name.split(" ")[1]}
+                </h2>
                 <p className="heading">{prescription.specialization}</p>
                 <p className="heading">Your tagline here</p>
               </div>
@@ -174,18 +179,12 @@ const PrescriptionForm = ({
                   />
                 </svg>
                 <div>
-                  <h5 className="heading fw-bold">
-                    address
-                  </h5>
-                  <h6 className="sub-text">
-                    {'Mansoura Qesm 2nd st. 10'}
-                  </h6>
+                  <h5 className="heading fw-bold">address</h5>
+                  <h6 className="sub-text">{"Mansoura Qesm 2nd st. 10"}</h6>
                 </div>
               </div>
               <div className="d-flex flex-column gap-3 align-items-end mt-3">
-                <h2 className="heading fw-bold">
-                  Hospital Name
-                </h2>
+                <h2 className="heading fw-bold">Hospital Name</h2>
                 <p>+(02)123456789</p>
                 <p>company@mail.com</p>
                 <p>www.companyName.com</p>
@@ -194,7 +193,8 @@ const PrescriptionForm = ({
           </div>
         </div>
       </div>
-  )
-}
+    </>
+  );
+};
 
-export default PrescriptionForm
+export default PrescriptionForm;

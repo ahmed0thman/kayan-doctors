@@ -22,7 +22,7 @@ const DataGrid = ({
   onGridReady,
   onRowDoubleClicked,
   rowDrag=false,
-  filter=false
+  filter=true
 }: {
   dataSource: Array<any>,
   columns: any,
