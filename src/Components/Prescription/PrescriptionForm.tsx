@@ -3,8 +3,6 @@ import logoIcon from "../../assets/images/icons/logo-2.svg";
 import { useSelector } from "react-redux";
 import { prescriptionState } from "../../Settings/store/features/prescriptions/prescriptionSlice";
 import { format } from "date-fns";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 import domtoimage from "dom-to-image";
 import Loading from "../Loading";
 
@@ -42,6 +40,7 @@ const PrescriptionForm = ({
     return () => {
       if (previewElement && document.body.contains(previewElement)) {
         document.body.removeChild(previewElement);
+        setPreviewIsReady(false);
       }
     };
   }, [showPrescription]);

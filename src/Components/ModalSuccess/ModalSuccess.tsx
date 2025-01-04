@@ -1,6 +1,3 @@
-import { maxWidth } from '@mui/system'
-import React from 'react'
-
 const ModalSuccess = ({msg,show,handleClose}:{
   msg: string,
   show: boolean,

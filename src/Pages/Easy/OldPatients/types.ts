@@ -1,7 +1,7 @@
 export interface patientEasy{
   code: string,
   name: string,
-  gender: string,
+  gender: 'Male' | 'Female',
   phone: number
 }
 

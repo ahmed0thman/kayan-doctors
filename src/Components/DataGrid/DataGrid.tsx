@@ -37,7 +37,7 @@ const DataGrid = ({
 
   const [filterText, setFilterText] = useState<string | null>();
   const dataGridTheme = themeQuartz.withParams({
-    spacing: 18.5,
+    spacing: 16.5,
   });
   const [cols, setCols] = useState<Array<any>>();
   

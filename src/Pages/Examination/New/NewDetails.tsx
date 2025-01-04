@@ -14,8 +14,6 @@ import { useSelector } from "react-redux";
 import { prescriptionState } from "../../../Settings/store/features/prescriptions/prescriptionSlice";
 import { specialization } from "../../../Settings/store/features/prescriptions/types";
 import logoIcon from "../../../assets/images/icons/logo-2.svg";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 import {format} from 'date-fns'
 import domtoimage from 'dom-to-image';
 import PrescriptionForm from "../../../Components/Prescription/PrescriptionForm";

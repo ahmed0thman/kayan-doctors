@@ -27,6 +27,9 @@ import NewDetails from "../../Pages/Examination/New/NewDetails";
 import Resumption from "../../Pages/Examination/Resumption/Resumption";
 import Waiting from "../../Pages/Examination/Waiting/Waiting";
 import PatientArchive from "../../Pages/Patients/AllPatients/PatientArchive/PatientArchive";
+import PatientChart from "../../Pages/AccountReports/PatientChart/PatientChart";
+import BarChart from "../../Pages/AccountReports/BarChart/BarChart";
+import Inputs from "../../Pages/AccountReports/BarChart/Inputs";
 
 export const router = createBrowserRouter([
   {
@@ -291,6 +294,38 @@ export const router = createBrowserRouter([
       <RequiredAuth>
         <Layout>
           <AccountReports />
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}account-reports/patients`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <PatientChart />
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}account-reports/bar-chart`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <BarChart/>
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `${process.env.REACT_APP_URL_Publish}account-reports/bar-chart/inputs`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <BarChart>
+            <Inputs/>
+          </BarChart>
         </Layout>
       </RequiredAuth>
     )
