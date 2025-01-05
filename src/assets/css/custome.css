@@ -696,9 +696,19 @@ table {
 }
 
 .img-success {
+  background-image: url("../images/icons/success.png");
+}
+
+.img-warning {
+  background-image: url("../images/icons/warning.png");
+}
+
+.img-success,
+.img-warning{
   width: 177px;
   height: 177px;
-  background-image: url("../images/icons/success.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .badge {

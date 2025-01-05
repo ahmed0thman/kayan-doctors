@@ -2,19 +2,22 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { input } from "./types";
 import DataGrid from "../../../Components/DataGrid/DataGrid";
 import NoData from "../../../Components/NoData";
 import { ColDef } from "ag-grid-community";
 import { CustomCellRendererProps } from "ag-grid-react";
 import GridControls from "./GridControls";
+import ModalWarningDelete from "../../../Components/ModalWarningDelete/ModalWarningDelete";
 
 const Inputs = () => {
   const [dateFrom, setDateFrom] = useState<Date>(new Date());
   const [dateTo, setDateTo] = useState<Date>(new Date());
   const [showInputsModal, setShowInputsModal] = useState<boolean>(false);
-
+  const [showDeleteMsg, setShowDeleteMsg] = useState<boolean>(false)
+  const [inputToDelete, setInputToDelete] = useState<number>(0);
+  const [inputToEdit, setInputToEdit] = useState<input>();
   const [input, setInput] = useState<string>("");
   const [inputTotal, setInputTotal] = useState<number>(0);
   const [inputDate, setInputDate] = useState<Date>(new Date());
@@ -53,8 +56,8 @@ const Inputs = () => {
         const input: input = props.data as input;
         return (
           <GridControls
-            handleRemove={() => handleDeleteInput(input)}
-            handleEdit={() => handleEditInput(input)}
+            handleEdit={() => setInputToEdit((old) => input)}
+            handleShowDeleteMsg={()=>HandleRemoveInput(input.id)}
           />
         );
       },
@@ -71,33 +74,50 @@ const Inputs = () => {
 
   const handleSaveNewInput = () => {
     const newInput: input = {
+      id: (inputToEdit && inputToEdit.id)||allInputs.length + 1,
       title: input,
       total: inputTotal,
       date: inputDate,
     };
-    setAllInputs([...allInputs, newInput]);
+    setAllInputs((prevInputs) => [...allInputs, newInput].sort((a:input,b:input)=> a.id>b.id?1:a.id===b.id?0:-1));
     handleCloseInputsModal();
   };
 
-  const handleDeleteInput = (input: input) => {
-    const newInputs = allInputs.filter(
-      (ele) =>
-        ele.title !== input.title ||
-        ele.total !== input.total ||
-        ele.date !== input.date
-    );
+  const deleteInput = (id: number) => {
+    const newInputs = allInputs.filter((ele:input) => ele.id !== id);
     setAllInputs(newInputs);
   };
 
-  const handleEditInput = (input: input) => {
+  const HandleRemoveInput = (id:number) =>{
+    setShowDeleteMsg(true)
+    setInputToDelete(id)
+  }
+
+  const editInput = (input: input) => {
+    deleteInput(input.id);
+    handleOpenInputsModal();
     setInput(input.title);
     setInputTotal(input.total);
     setInputDate(input.date);
-    handleDeleteInput(input);
-    handleOpenInputsModal();
   };
+
+  useEffect(()=>{
+    if(inputToEdit){
+      editInput(inputToEdit)
+    }
+  },[inputToEdit])
+
+  
   return (
     <>
+      <ModalWarningDelete
+        show={showDeleteMsg}
+        handleOk={() => {
+          setShowDeleteMsg(false);
+          deleteInput(inputToDelete);
+        }}
+        handleClose={() => setShowDeleteMsg(false)}
+      />
       <div className={`modal ${showInputsModal && "show"}`}>
         <div
           className="modal-container"
