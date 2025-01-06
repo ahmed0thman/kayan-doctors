@@ -1,5 +1,6 @@
 {
   "name": "kayan-doctors",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -69,4 +70,5 @@
   "devDependencies": {
     "@types/react-date-range": "^1.4.9"
   }
+
 }

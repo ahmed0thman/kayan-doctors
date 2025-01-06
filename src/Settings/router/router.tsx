@@ -30,16 +30,66 @@ import PatientArchive from "../../Pages/Patients/AllPatients/PatientArchive/Pati
 import PatientChart from "../../Pages/AccountReports/PatientChart/PatientChart";
 import BarChart from "../../Pages/AccountReports/BarChart/BarChart";
 import Inputs from "../../Pages/AccountReports/BarChart/Inputs";
-
+import Expense from "../../Pages/AccountReports/BarChart/Expense";
+import Messages from "../../Pages/Messages/Messages";
+import Received from "../../Pages/Messages/Received";
+import Sent from "../../Pages/Messages/Sent";
+import NewMessage from "../../Pages/Messages/NewMessage";
 export const router = createBrowserRouter([
   {
-    path: `${process.env.REACT_APP_URL_Publish}login`,
+    path: `/login`,
     element: (
       <Login />
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}settings`,
+    path: `/messages`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Messages />
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `/messages/received`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Messages>
+            <Received/>
+          </Messages>
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `/messages/sent`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Messages>
+            <Sent/>
+          </Messages>
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `/messages/new`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Messages>
+            <NewMessage/>
+          </Messages>
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `/settings`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -49,7 +99,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}settings/prescriptions`,
+    path: `/settings/prescriptions`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -59,7 +109,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}settings/change-password`,
+    path: `/settings/change-password`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -69,7 +119,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}settings/change-language`,
+    path: `/settings/change-language`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -79,7 +129,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}`,
+    path: `/`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -89,7 +139,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}easy`,
+    path: `/easy`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -99,7 +149,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}easy/allPatient`,
+    path: `/easy/allPatient`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -111,7 +161,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}easy/newPatient`,
+    path: `/easy/newPatient`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -123,7 +173,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}dr-easy`,
+    path: `/dr-easy`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -133,7 +183,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}re-examination`,
+    path: `/re-examination`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -143,7 +193,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}add-patients`,
+    path: `/add-patients`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -153,7 +203,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}add-patients/new-reservation`,
+    path: `/add-patients/new-reservation`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -165,7 +215,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}add-patients/old-reservation`,
+    path: `/add-patients/old-reservation`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -177,7 +227,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}add-patients/online-reservation`,
+    path: `/add-patients/online-reservation`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -189,7 +239,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}following-up`,
+    path: `/following-up`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -199,7 +249,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}examination`,
+    path: `/examination`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -209,7 +259,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}examination/new`,
+    path: `/examination/new`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -219,7 +269,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}examination/resumption`,
+    path: `/examination/resumption`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -229,7 +279,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}examination/waiting`,
+    path: `/examination/waiting`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -239,7 +289,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}examination/new/:code`,
+    path: `/examination/new/:code`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -249,7 +299,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}patients`,
+    path: `/patients`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -259,7 +309,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}patients/archive/:code`,
+    path: `/patients/archive/:code`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -269,7 +319,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}live`,
+    path: `/live`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -279,7 +329,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}medical-test`,
+    path: `/medical-test`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -289,7 +339,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}account-reports`,
+    path: `/account-reports`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -299,7 +349,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}account-reports/patients`,
+    path: `/account-reports/patients`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -309,7 +359,7 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}account-reports/bar-chart`,
+    path: `/account-reports/bar-chart`,
     element: (
       <RequiredAuth>
         <Layout>
@@ -319,12 +369,36 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: `${process.env.REACT_APP_URL_Publish}account-reports/bar-chart/inputs`,
+    path: `/account-reports/bar-chart/inputs`,
     element: (
       <RequiredAuth>
         <Layout>
           <BarChart>
             <Inputs/>
+          </BarChart>
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `/account-reports/bar-chart/expense`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <BarChart>
+            <Expense/>
+          </BarChart>
+        </Layout>
+      </RequiredAuth>
+    )
+  },
+  {
+    path: `/account-reports/bar-chart/net-profit`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <BarChart>
+            <Expense netProfit/>
           </BarChart>
         </Layout>
       </RequiredAuth>

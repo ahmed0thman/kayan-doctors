@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { APP_DISPATCH } from '../../Settings/store/store'
 import { setLoadingState } from '../../Settings/store/features/loading/loadingSlice'
 import { language } from '../../Settings/store/features/language/languageSlice'
-import { Gauge, gaugeClasses } from '@mui/x-charts'
 import GaugeChart from './GaugeChart'
 
 
@@ -22,11 +21,6 @@ const Home = () => {
     setStatsList(statsCardList())
   }, [lan])
 
-  const chartSettings = {
-    width: 264,
-    height: 132,
-    value: 60,
-  };
   return (
     <div className="home">
       <div className="cards">

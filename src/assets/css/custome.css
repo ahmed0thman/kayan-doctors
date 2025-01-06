@@ -195,24 +195,26 @@ a.btn {
   font-weight: 500;
 }
 .btn-outline-primary {
-  color: var(--color-btn-primary);
-  border-color: var(--color-btn-primary);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 
   &:hover {
-    background-color: var(--color-btn-primary);
+    background-color: var(--color-primary);
     color: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    border-color: var(--color-btn-primary);
+    border-color: var(--color-primary);
   }
 }
 
 .btn-outline-secondary {
-  border-color: #fff;
-  color: #fff;
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
 
   &:hover {
-    color: var(--color-btn-primary);
-    background-color: #fff;
+    background-color: var(--color-secondary);
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-secondary);
   }
 }
 

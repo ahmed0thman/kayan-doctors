@@ -154,4 +154,7 @@ section {
       display: none;
     }
   }
+  .ag-checkbox-input{
+    opacity: 0;
+  }
 }
