@@ -51,7 +51,7 @@ const Header = () => {
             </span>
           </Link>
           <Link
-            to={'/messages'}
+            to={'/Messages'}
           >
             <span className='btn-pref'>
               <img src={mail}alt="" />
@@ -72,17 +72,17 @@ const Header = () => {
 
             <ul className={`options-list ${showOptions && "show"}`}>
               <li className="option">
-                <Link to={`/settings`}>
+                <Link to={`${process.env.REACT_APP_URL_Publish}settings`}>
                   {strings.settings}
                 </Link>
               </li>
               <li className="option">
-                <Link to={`/settings/change-password`}>
+                <Link to={`${process.env.REACT_APP_URL_Publish}settings/change-password`}>
                   {strings.changePassword}
                 </Link>
               </li>
               <li className="option">
-                <Link to={`/settings/change-language`}>
+                <Link to={`${process.env.REACT_APP_URL_Publish}settings/change-language`}>
                 {strings.changelanguage}
                 </Link>
               </li>
