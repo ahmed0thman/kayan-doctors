@@ -404,4 +404,4 @@ export const router = createBrowserRouter([
       </RequiredAuth>
     )
   },
-],{ basename: '/kayan' })
+],{ basename: '/kayan-doctors' })
