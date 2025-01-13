@@ -3,6 +3,9 @@
   "homepage": ".",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -70,5 +73,4 @@
   "devDependencies": {
     "@types/react-date-range": "^1.4.9"
   }
-
 }
