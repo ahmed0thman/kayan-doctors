@@ -123,7 +123,8 @@ const PrescriptionDetails = ({
       </button>
       {
         medicineList.length > 0 && 
-        <table className="data-table medicine-table">
+        <div className="custom-table">
+          <table className="data-table medicine-table">
         <thead>
           <tr>
             <td>Medicine Name</td>
@@ -154,6 +155,7 @@ const PrescriptionDetails = ({
           )}
         </tbody>
       </table>
+        </div>
       }
     </section>
   );

@@ -36,7 +36,7 @@ const Services = () => {
       <h4 className="heading mt-5">
         Services List
       </h4>
-      
+      <div className="custom-table">
       <table>
         <thead>
           <tr>
@@ -72,6 +72,8 @@ const Services = () => {
           </tr>
         </tbody>
       </table>
+      </div>
+      
 
     </section>
   )

@@ -106,7 +106,8 @@ const MedicalFile = ({
       </button>
       {
         testsList.length > 0 && 
-        <table className="data-table test-table">
+        <div className="custom-table">
+          <table className="data-table test-table">
         <thead>
           <tr>
             <td>Test Name</td>
@@ -135,6 +136,7 @@ const MedicalFile = ({
           )}
         </tbody>
       </table>
+        </div>
       }
     </section>
   );

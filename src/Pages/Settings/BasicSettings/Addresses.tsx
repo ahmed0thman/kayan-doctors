@@ -65,6 +65,7 @@ const Addresses = () => {
         Addresses
       </h4>
       
+      <div className="custom-table">
       <table className="addresses-table">
         <thead>
           <tr>
@@ -106,6 +107,7 @@ const Addresses = () => {
           </tr>
         </tbody>
       </table>
+      </div>
 
     </section>
   )

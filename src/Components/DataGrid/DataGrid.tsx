@@ -86,7 +86,7 @@ const DataGrid = ({
           paginationPageSize={pageSize}
           onGridReady={onGridReady}
           paginationPageSizeSelector={[pageSize, 2 * pageSize]}
-          onRowDoubleClicked={onRowDoubleClicked}
+          onRowClicked={onRowDoubleClicked}
           rowDragManaged={rowDrag}
           enableRtl={lan==='ar'}
           suppressScrollOnNewData={true}

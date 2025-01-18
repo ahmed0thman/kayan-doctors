@@ -39,7 +39,7 @@ const Header = () => {
         </h2>
       </div>
       <div className="account-pref">
-        <div className="d-flex align-items-center gap-4 px-3">
+        <div className="header-buttons">
           <Link
             to={'/'}
           >
@@ -62,7 +62,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="account-user-info">
-          <img src={person} alt="" className="profile-img" />
+          <img src={person} alt="" className="profile-img" onClick={HandleShowOptions}/>
           <p className="user-name">
           {userPrefix} {user.ProfileName}
           </p>

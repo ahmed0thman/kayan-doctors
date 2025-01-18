@@ -1,6 +1,6 @@
 main {
   background-color: #f9f9fc;
-  flex-grow: 1;
+  flex: 1;
   overflow: auto;
   display: flex;
   flex-direction: column;

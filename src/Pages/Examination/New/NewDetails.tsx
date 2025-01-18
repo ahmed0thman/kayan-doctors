@@ -376,14 +376,14 @@ const NewDetails = () => {
 
       <div className="d-flex gap-3 justify-content-center align-items-center my-3">
         <button className="btn btn-primary btn-submit">Save</button>
-        <button
+        {/* <button
           className="btn btn-primary btn-submit"
           onClick={HandleShowPrescription}
         >
           <i className="fa fa-print mx-2" aria-hidden="true"></i>
           Print
         </button>
-        <button className="btn btn-primary btn-submit">Done</button>
+        <button className="btn btn-primary btn-submit">Done</button> */}
       </div>
     </>
   );
