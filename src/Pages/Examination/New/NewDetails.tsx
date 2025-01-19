@@ -41,6 +41,8 @@ const NewDetails = () => {
     useState<number>();
   const [numberOfMiscarriages, setNumberOfMiscarriages] = useState<number>();
   const [bloodType, setBloodType] = useState<string>();
+  const [visonQuality, setVisionQuality] = useState<number>();
+  const [hearing, setHearing] = useState<number>();
 
   const [showPrescription, setShowPrescription] = useState<boolean>(false);
 
@@ -272,6 +274,42 @@ const NewDetails = () => {
               />
             </div>
           </div>
+          {
+            prescription.specialization === specialization.PEDIATRICIAN  &&
+            <>
+              <div className="col-12 col-md-6 col-xl-3">
+            <div className="form-group">
+              <label htmlFor="visionQuality" className="form-label">
+                Vision Quality
+              </label>
+              <input
+                type="text"
+                name="visionQuality"
+                id="visionQuality"
+                className="form-control"
+                value={visonQuality}
+                onChange={(e) => setVisionQuality(Number(e.currentTarget.value))}
+              />
+            </div>
+          </div>
+          <div className="col-12 col-md-6 col-xl-3">
+            <div className="form-group">
+              <label htmlFor="hearingMeasurement" className="form-label">
+                Hearing Measurement
+              </label>
+              <input
+                type="number"
+                min={0}
+                name="hearingMeasurement"
+                id="hearingMeasurement"
+                className="form-control"
+                value={hearing}
+                onChange={(e) => setHearing(Number(e.currentTarget.value))}
+              />
+            </div>
+          </div>
+            </>
+          }
           {prescription.specialization === specialization.GYNECOLOGIST && (
             <>
               <div className="col-12 col-md-6 col-xl-3">

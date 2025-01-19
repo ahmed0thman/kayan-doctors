@@ -5,7 +5,7 @@ import { ColDef } from "ag-grid-community";
 import { CustomCellRendererProps } from "ag-grid-react";
 import GridControls from './GridControls';
 
-const MedicalFilesGrid = ({files}:{files:medicalFile[]}) => {
+const MedicalFilesGrid = ({files, showGallery}:{files:medicalFile[], showGallery:any}) => {
   const [medicalFiles, setMedicalFiles] = useState<medicalFile[]>(files);
   const medicalFileColumns: ColDef[] = [
     {
@@ -48,7 +48,10 @@ const MedicalFilesGrid = ({files}:{files:medicalFile[]}) => {
         const value: boolean = props.value as boolean;
         const patientCode: string = props.data.name;
         return (
-          <GridControls/>
+          <button className="btn px-2 py-1"
+          onClick={showGallery}>
+            <i className="fa fa-eye"></i>
+          </button>
         );
       },
     },

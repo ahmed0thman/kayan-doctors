@@ -82,6 +82,17 @@ const PrescriptionForm = ({
           e.currentTarget === e.target && HandleHidePrescription()
         }
       >
+        <div className="mb-2 d-flex gap-2">
+          <button className="btn btn-primary px-2 py-1"
+          onClick={()=> window.print()}>
+            <i className="fa fa-print fa-lg mx-1"></i>
+            <span className="fs-6">Print</span>
+          </button>
+          <button className="btn btn-primary px-2 py-1"
+          onClick={HandleHidePrescription}>
+            <i className="fa fa-close fa-lg"></i>
+          </button>
+        </div>
         <div
           className="scroll-wrapper"
           onClick={(e) =>

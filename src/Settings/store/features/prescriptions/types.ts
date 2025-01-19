@@ -11,5 +11,6 @@ export interface prescription{
 export enum specialization{
   GENERAL= 'general',
   PEDIATRICIAN= 'pediatrician',
-  GYNECOLOGIST= 'gynecologist'
+  GYNECOLOGIST= 'gynecologist',
+  DENTIST='dentist'
 }

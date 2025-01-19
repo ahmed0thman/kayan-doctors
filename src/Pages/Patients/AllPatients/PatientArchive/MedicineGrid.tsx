@@ -83,18 +83,18 @@ const MedicineGrid = () => {
       flex: 0.8,
       minWidth: 120,
     },
-    {
-      field: "control",
-      flex: 0.8,
-      minWidth: 150,
-      cellRenderer: (props: CustomCellRendererProps) => {
-        const value: boolean = props.value as boolean;
-        const patientCode: string = props.data.name;
-        return (
-          <GridControls/>
-        );
-      },
-    },
+    // {
+    //   field: "control",
+    //   flex: 0.8,
+    //   minWidth: 150,
+    //   cellRenderer: (props: CustomCellRendererProps) => {
+    //     const value: boolean = props.value as boolean;
+    //     const patientCode: string = props.data.name;
+    //     return (
+    //       <GridControls/>
+    //     );
+    //   },
+    // },
   ];
 
   useEffect(()=>{
