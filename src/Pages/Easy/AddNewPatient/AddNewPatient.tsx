@@ -131,6 +131,19 @@ const AddNewPatient = () => {
               </div>
             </div>
           }
+          {
+            prescription.specialization === specialization.DENTIST &&
+            <div className="col-12 col-lg-6">
+              <div className="form-group">
+                <label htmlFor='service' className="form-label">
+                  Service
+                </label>
+                <select name="service" id="service" className="form-select">
+                  <option value="">--select service</option>
+                </select>
+              </div>
+            </div>
+          }
         </div>
 
         <button className="btn btn-primary btn-submit"

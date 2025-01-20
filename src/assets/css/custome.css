@@ -1008,3 +1008,25 @@ input:-webkit-autofill:active {
     
   }
 }
+
+.input-suggestion{
+  position: relative;
+
+  .suggestions-list{
+    position: absolute;
+    z-index: 3;
+    top: 100%;
+    inset-inline-start: 0;
+    height: fit-content;
+    max-height: 200px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    overflow-y: auto;
+    background-color: #fff;
+    padding-inline: 0.25rem;
+
+    li{
+      border-bottom: 0.05rem solid #ccc;
+    }
+  }
+}

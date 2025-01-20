@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { medicine } from "./types";
+import { medicine, Medicines } from "./types";
 
 const PrescriptionDetails = ({
   medicineList,
@@ -14,6 +14,28 @@ const PrescriptionDetails = ({
   const [medicineDose, setMedicineDose] = useState<string>("");
   const [medicineTime, setMedicineTime] = useState<string>("");
   const [medicineNote, setMedicineNote] = useState<string>("");
+  const [medicineSuggestion, setMedicineSuggestion] = useState<string[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
+
+  const handleFilterdMedicine = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.currentTarget.value;
+    setMedicineName(input)
+    if(input.trim().length === 0){
+      setShowSuggestions(false)
+      return
+    }
+    const filteredMedicines = Medicines.filter((ele:string)=> {
+      return ele.toLowerCase().includes(input.toLowerCase())
+    });
+
+    setMedicineSuggestion(filteredMedicines)
+    setShowSuggestions(true)
+  }
+
+  const handleSelectedSuggestion = (text:string) =>{
+    setMedicineName(text);
+    setShowSuggestions(false);
+  }
 
   const HandleAddMedicine = () => {
     const newMedicine: medicine = {
@@ -51,7 +73,7 @@ const PrescriptionDetails = ({
         Prescription Details</h4>
       <div className="row">
         <div className="col-12 col-md-6 col-lg-4">
-          <div className="form-group">
+          <div className="form-group input-suggestion">
             <label htmlFor="medicineName" className="form-label">
               Medicine Name
             </label>
@@ -62,8 +84,23 @@ const PrescriptionDetails = ({
               className="form-control"
               placeholder="Please enter Medicine Name"
               value={medicineName}
-              onChange={(e) => setMedicineName(e.currentTarget.value)}
+              onChange={handleFilterdMedicine}
+              // onBlur={()=> setShowSuggestions(false)}
             />
+            {showSuggestions && (
+              <ul className="suggestions-list">
+                {
+                  medicineSuggestion.length
+                  ? medicineSuggestion.map( (ele) =>
+                    <li onClick={()=> handleSelectedSuggestion(ele)}>
+                      {ele}
+                    </li>
+                  )
+                  :
+                  <li>No Suggestions available</li>
+                }
+              </ul>
+            )}
           </div>
         </div>
         <div className="col-12 col-md-6 col-lg-4">
