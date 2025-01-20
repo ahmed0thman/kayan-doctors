@@ -334,6 +334,10 @@ textarea.form-control {
 
 .form-group {
   margin-block: 0.5rem;
+
+  .MuiOutlinedInput-notchedOutline{
+    border: none;
+  }
 }
 
 .form-check {
