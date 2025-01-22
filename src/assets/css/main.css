@@ -592,6 +592,27 @@
     }
   }
   
+  .medicine-editor{
+    margin-top: 1rem;
+    .form-group{
+      margin-block: 0 !important;
+      .form-control{
+        border: none !important;
+        padding-block: 0.2rem !important;
+
+        &::placeholder{
+          font-style: italic;
+          font-weight: 400;
+          font-size: 14px;
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .flex-group{
+      display: inline-block !important;
+    }
+  }
   
   .prescription-card{
     padding: 1.5rem 2rem;
