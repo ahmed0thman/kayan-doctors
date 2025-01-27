@@ -1032,5 +1032,10 @@ input:-webkit-autofill:active {
     li{
       border-bottom: 0.05rem solid #ccc;
     }
+
+    li:hover{
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
   }
 }

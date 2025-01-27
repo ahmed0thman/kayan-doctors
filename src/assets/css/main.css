@@ -609,6 +609,19 @@
       }
     }
 
+    .input-suggestion{
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      span{
+        color: var(--color-secondary);
+        font-style: italic;
+      }
+      .form-control{
+        padding-inline-start: 2px !important;
+      }
+    }
+
     .flex-group{
       display: inline-block !important;
     }

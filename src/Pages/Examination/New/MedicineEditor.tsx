@@ -97,6 +97,9 @@ const MedicineEditor = ({
         setDoseEntered(true);
 
     }
+    else{
+      nameInputRef.current?.focus()
+    }
   },[])
   useEffect(() => {
     if (nameEntered) {
@@ -124,6 +127,7 @@ const MedicineEditor = ({
   return (
     <>
         <div className="form-group input-suggestion">
+          <span>RX/</span>
           <input
             ref={nameInputRef}
             type="text"
@@ -206,7 +210,11 @@ const MedicineEditor = ({
                 onChange={(e) => setMedicineNote(e.currentTarget.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    
                     setNoteEntered(true);
+                    if(currentElement){
+                      return
+                    }
                     HandleAddMedicine();
                   }
                 }}
