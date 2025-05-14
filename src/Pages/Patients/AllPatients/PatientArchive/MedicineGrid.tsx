@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import DataGrid from '../../../../Components/DataGrid/DataGrid'
-import { medicine } from '../../../Examination/New/types';
+import React, { useEffect, useState } from "react";
+import DataGrid from "../../../../Components/DataGrid/DataGrid";
+import { medicine } from "../../../Examination/New/types";
 import { ColDef } from "ag-grid-community";
 import { CustomCellRendererProps } from "ag-grid-react";
-import GridControls from './GridControls';
+import GridControls from "./GridControls";
 
 const MedicineGrid = () => {
   const [medicineList, setMedicineList] = useState<medicine[]>([
@@ -42,6 +42,18 @@ const MedicineGrid = () => {
       dose: "20mg",
       time: "Once a day",
       note: "For cholesterol management",
+    },
+    {
+      name: "Omeprazole",
+      dose: "20mg",
+      time: "Once a day",
+      note: "For acid reflux treatment",
+    },
+    {
+      name: "Aspirin",
+      dose: "81mg",
+      time: "Once a day",
+      note: "For blood thinning",
     },
     {
       name: "Omeprazole",
@@ -97,20 +109,18 @@ const MedicineGrid = () => {
     // },
   ];
 
-  useEffect(()=>{
-    
-  },[])
+  useEffect(() => {}, []);
   return (
-    <div className="d-flex flex-column" style={{ height: "360px" }}>
-          <DataGrid
-            dataSource={medicineList}
-            columns={medicineColumns}
-            pageSize={3}
-            filter={false}
-            rowDrag={true}
-          />
-        </div>
-  )
-}
+    <div className="d-flex flex-column" style={{ height: "845px" }}>
+      <DataGrid
+        dataSource={medicineList}
+        columns={medicineColumns}
+        pageSize={10}
+        filter={false}
+        rowDrag={true}
+      />
+    </div>
+  );
+};
 
-export default MedicineGrid
+export default MedicineGrid;

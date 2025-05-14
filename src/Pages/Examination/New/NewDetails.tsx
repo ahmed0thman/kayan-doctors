@@ -14,8 +14,8 @@ import { useSelector } from "react-redux";
 import { prescriptionState } from "../../../Settings/store/features/prescriptions/prescriptionSlice";
 import { specialization } from "../../../Settings/store/features/prescriptions/types";
 import logoIcon from "../../../assets/images/icons/logo-2.svg";
-import {format} from 'date-fns'
-import domtoimage from 'dom-to-image';
+import { format } from "date-fns";
+import domtoimage from "dom-to-image";
 import PrescriptionForm from "../../../Components/Prescription/PrescriptionForm";
 
 const NewDetails = () => {
@@ -61,15 +61,14 @@ const NewDetails = () => {
     }
   }, []);
 
-
   return (
     <>
       <PrescriptionForm
-      consultationDate={consultationDate}
-      patientInfo={patientInfo}
-      showPrescription={showPrescription}
-      setShowPrescription={setShowPrescription}
-    />
+        consultationDate={consultationDate}
+        patientInfo={patientInfo}
+        showPrescription={showPrescription}
+        setShowPrescription={setShowPrescription}
+      />
       <PatientInfoCard key={1} patientInfo={patientInfo} />
 
       <section>
@@ -107,7 +106,8 @@ const NewDetails = () => {
                   format="yyyy-MM-dd"
                   className="form-control"
                   value={consultationDate}
-                  onChange={(value) => setConsultationDate(value as Date)}
+                  readOnly
+                  // onChange={(value) => setConsultationDate(value as Date)}
                 />
               </LocalizationProvider>
             </div>
@@ -274,42 +274,43 @@ const NewDetails = () => {
               />
             </div>
           </div>
-          {
-            prescription.specialization === specialization.PEDIATRICIAN  &&
+          {prescription.specialization === specialization.PEDIATRICIAN && (
             <>
               <div className="col-12 col-md-6 col-xl-3">
-            <div className="form-group">
-              <label htmlFor="visionQuality" className="form-label">
-                Vision Quality
-              </label>
-              <input
-                type="text"
-                name="visionQuality"
-                id="visionQuality"
-                className="form-control"
-                value={visonQuality}
-                onChange={(e) => setVisionQuality(Number(e.currentTarget.value))}
-              />
-            </div>
-          </div>
-          <div className="col-12 col-md-6 col-xl-3">
-            <div className="form-group">
-              <label htmlFor="hearingMeasurement" className="form-label">
-                Hearing Measurement
-              </label>
-              <input
-                type="number"
-                min={0}
-                name="hearingMeasurement"
-                id="hearingMeasurement"
-                className="form-control"
-                value={hearing}
-                onChange={(e) => setHearing(Number(e.currentTarget.value))}
-              />
-            </div>
-          </div>
+                <div className="form-group">
+                  <label htmlFor="visionQuality" className="form-label">
+                    Vision Quality
+                  </label>
+                  <input
+                    type="text"
+                    name="visionQuality"
+                    id="visionQuality"
+                    className="form-control"
+                    value={visonQuality}
+                    onChange={(e) =>
+                      setVisionQuality(Number(e.currentTarget.value))
+                    }
+                  />
+                </div>
+              </div>
+              <div className="col-12 col-md-6 col-xl-3">
+                <div className="form-group">
+                  <label htmlFor="hearingMeasurement" className="form-label">
+                    Hearing Measurement
+                  </label>
+                  <input
+                    type="number"
+                    min={0}
+                    name="hearingMeasurement"
+                    id="hearingMeasurement"
+                    className="form-control"
+                    value={hearing}
+                    onChange={(e) => setHearing(Number(e.currentTarget.value))}
+                  />
+                </div>
+              </div>
             </>
-          }
+          )}
           {prescription.specialization === specialization.GYNECOLOGIST && (
             <>
               <div className="col-12 col-md-6 col-xl-3">

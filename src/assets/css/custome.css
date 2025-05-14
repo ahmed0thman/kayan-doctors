@@ -288,13 +288,13 @@ input[type="text"] {
   font-weight: 500;
   caret-color: var(--color-gray-3);
   color: var(--color-secondary);
-
+  field-sizing: content;
   &::placeholder {
     color: var(--color-gray-3);
   }
 }
 
-input:disabled{
+input:disabled {
   color: #5e5e5e;
   opacity: 0.6;
   background-color: var(--color-gray-1) !important;
@@ -335,7 +335,7 @@ textarea.form-control {
 .form-group {
   margin-block: 0.5rem;
 
-  .MuiOutlinedInput-notchedOutline{
+  .MuiOutlinedInput-notchedOutline {
     border: none;
   }
 }
@@ -644,7 +644,7 @@ input:-webkit-autofill:active {
   transition: all 5000s ease-in-out 0s;
 }
 
-.custom-table{
+.custom-table {
   width: calc(100% + 4rem);
   margin-inline-start: -2rem;
   height: max-content;
@@ -677,14 +677,14 @@ input:-webkit-autofill:active {
         padding-inline: 0.5rem;
         white-space: nowrap;
       }
-  
+
       .actions {
         display: flex;
         gap: 0.5rem;
         .btn {
           padding: 0.25rem 0.5rem;
           border: none;
-  
+
           &:focus,
           &:hover {
             opacity: 0.75;
@@ -726,7 +726,7 @@ input:-webkit-autofill:active {
 }
 
 .img-success,
-.img-warning{
+.img-warning {
   width: 177px;
   height: 177px;
   background-repeat: no-repeat;
@@ -742,14 +742,15 @@ input:-webkit-autofill:active {
   padding-block: 6px;
   border-radius: 6px;
   text-transform: capitalize;
+  color: #fff;
 
   &.green {
-    background-color: rgba(71, 247, 84, 0.15);
-    color: var(--green-2);
+    /* background-color: rgba(71, 247, 84, 0.15); */
+    background-color: var(--green-2);
   }
   &.orange {
-    background-color: rgba(247, 152, 29, 0.15);
-    color: var(--orange-2);
+    /* background-color: rgba(247, 152, 29, 0.15); */
+    background-color: var(--orange-2);
   }
 }
 
@@ -805,15 +806,14 @@ input:-webkit-autofill:active {
   min-height: 100vh;
   /* position: relative; */
   flex-direction: column;
-  .scroll-wrapper{
+  .scroll-wrapper {
     height: 90vh;
     width: 100vw;
     overflow-y: auto;
     position: relative;
-    
   }
 
-  .btn-print{
+  .btn-print {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -848,9 +848,10 @@ input:-webkit-autofill:active {
 
     .prescription-header {
       display: flex;
-      justify-self: end;
+      width: fit-content;
+      margin-inline-start: auto;
       box-shadow: none;
-      img{
+      img {
         margin-top: -2rem;
       }
       .doctor-info {
@@ -870,44 +871,43 @@ input:-webkit-autofill:active {
       }
     }
 
-    .patient-info{
+    .patient-info {
       margin-top: 3.5rem;
       background-color: var(--blue-light-2);
       margin-inline: -3.5rem;
       padding: 2rem 3rem;
-      .row{
+      .row {
         row-gap: 2rem;
       }
-      
     }
-    .info-item{
+    .info-item {
       display: flex;
       gap: 0.5rem;
       align-items: center;
-      .label{
+      .label {
         font-size: 20px;
         font-weight: 600;
         text-transform: capitalize;
       }
-      .value{
+      .value {
         font-size: 20px;
         font-weight: 300;
         font-style: italic;
       }
     }
 
-    .prescription-body{
+    .prescription-body {
       min-height: 600px;
-      background-image: url('../images/gallery/bgs/prescription.svg');
+      background-image: url("../images/gallery/bgs/prescription.svg");
       background-position: center;
       background-size: 25%;
       background-repeat: no-repeat;
       background-clip: padding-box;
       padding-block: 3.5rem;
     }
-    
-    .prescription-footer{
-      background-image: url('../images/gallery/bgs/presc-footer.svg');
+
+    .prescription-footer {
+      background-image: url("../images/gallery/bgs/presc-footer.svg");
       min-height: 250px;
       margin-inline: -3.5rem;
       background-size: cover;
@@ -951,8 +951,7 @@ input:-webkit-autofill:active {
 }
 /* .ag-radio-button-input-wrapper { */
 
-
-.preview{
+.preview {
   position: fixed;
   top: 0;
   left: 0;
@@ -966,57 +965,54 @@ input:-webkit-autofill:active {
   z-index: 100000;
 }
 @media print {
-
-  body{
+  body {
     width: 1000px !important;
   }
-  body *{
+  body * {
     display: none;
   }
-  .preview{
+  .preview {
     display: block !important;
   }
 }
 
-
-.modal.gallery{
-  .modal-container{
+.modal.gallery {
+  .modal-container {
     width: 95vw;
     max-width: 1400px;
     height: 95vh;
 
-    .image-preview{
+    .image-preview {
       overflow: visible;
-      .swiper-slide{
+      .swiper-slide {
         display: flex;
         justify-content: center;
       }
-      img{
+      img {
         max-height: 60vh;
         max-width: 80%;
         object-fit: contain;
       }
     }
-    
-    .image-nav{
-      margin-top:2rem;
+
+    .image-nav {
+      margin-top: 2rem;
       height: 70px;
-      .swiper-slide{
-        img{
+      .swiper-slide {
+        img {
           width: 180px;
           height: 80px;
           object-fit: contain;
         }
       }
     }
-    
   }
 }
 
-.input-suggestion{
+.input-suggestion {
   position: relative;
 
-  .suggestions-list{
+  .suggestions-list {
     position: absolute;
     z-index: 3;
     top: 100%;
@@ -1029,11 +1025,11 @@ input:-webkit-autofill:active {
     background-color: #fff;
     padding-inline: 0.25rem;
 
-    li{
+    li {
       border-bottom: 0.05rem solid #ccc;
     }
 
-    li:hover{
+    li:hover {
       background-color: #f1f1f1;
       cursor: pointer;
     }

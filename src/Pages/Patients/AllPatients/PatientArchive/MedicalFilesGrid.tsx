@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import DataGrid from '../../../../Components/DataGrid/DataGrid'
-import { medicalFile, medicine } from '../../../Examination/New/types';
+import React, { useEffect, useState } from "react";
+import DataGrid from "../../../../Components/DataGrid/DataGrid";
+import { medicalFile, medicine } from "../../../Examination/New/types";
 import { ColDef } from "ag-grid-community";
 import { CustomCellRendererProps } from "ag-grid-react";
-import GridControls from './GridControls';
+import GridControls from "./GridControls";
 
-const MedicalFilesGrid = ({files, showGallery}:{files:medicalFile[], showGallery:any}) => {
+const MedicalFilesGrid = ({
+  files,
+  showGallery,
+}: {
+  files: medicalFile[];
+  showGallery: any;
+}) => {
   const [medicalFiles, setMedicalFiles] = useState<medicalFile[]>(files);
   const medicalFileColumns: ColDef[] = [
     {
@@ -48,8 +54,7 @@ const MedicalFilesGrid = ({files, showGallery}:{files:medicalFile[], showGallery
         const value: boolean = props.value as boolean;
         const patientCode: string = props.data.name;
         return (
-          <button className="btn px-2 py-1"
-          onClick={showGallery}>
+          <button className="btn px-2 py-1" onClick={showGallery}>
             <i className="fa fa-eye"></i>
           </button>
         );
@@ -57,20 +62,18 @@ const MedicalFilesGrid = ({files, showGallery}:{files:medicalFile[], showGallery
     },
   ];
 
-  useEffect(()=>{
-    
-  },[])
+  useEffect(() => {}, []);
   return (
-    <div className="d-flex flex-column" style={{ height: "360px" }}>
-          <DataGrid
-            dataSource={medicalFiles}
-            columns={medicalFileColumns}
-            pageSize={3}
-            filter={false}
-            rowDrag={true}
-          />
-        </div>
-  )
-}
+    <div className="d-flex flex-column" style={{ height: "845px" }}>
+      <DataGrid
+        dataSource={medicalFiles}
+        columns={medicalFileColumns}
+        pageSize={10}
+        filter={false}
+        rowDrag={true}
+      />
+    </div>
+  );
+};
 
-export default MedicalFilesGrid
+export default MedicalFilesGrid;

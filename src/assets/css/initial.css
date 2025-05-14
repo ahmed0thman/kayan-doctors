@@ -1,10 +1,10 @@
-:root{
+:root {
   overflow: hidden;
   ::-webkit-scrollbar {
-    width: 3px;
-    height: 6px;
+    width: 12px;
+    height: 12px;
   }
-  
+
   ::-webkit-scrollbar-track {
     background: var(--color-text-gray-light2);
   }
@@ -15,8 +15,8 @@
   }
 }
 
-body{
-  font-family: 'Public Sans';
+body {
+  font-family: "Public Sans";
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -26,39 +26,43 @@ body{
   height: 100vh;
 }
 
-body.rotate{
+body.rotate {
   transition: transform 0.5s ease-in-out;
   transform: rotateY(180deg);
 }
 
-
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   margin-bottom: 0;
 }
 
-ul,ol{
+ul,
+ol {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-li{
+li {
   padding: 0;
   margin: 0;
 }
 
-a{
+a {
   text-decoration: none;
   color: #fff;
   cursor: pointer;
-  &:hover{
+  &:hover {
     color: unset;
   }
 }
 
-p{
+p {
   padding: 0;
   margin: 0;
 }
-

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { medicine, Medicines } from "./types";
 import MedicineEditor from "./MedicineEditor";
+import PrescriptionForm from "../../../Components/Prescription/PrescriptionForm";
 
 const PrescriptionDetails = ({
   medicineList,
@@ -11,8 +12,6 @@ const PrescriptionDetails = ({
   setMedicineList: any;
   Icon?: any;
 }) => {
-  
-
   return (
     <section>
       <h4 className="heading">
@@ -30,11 +29,13 @@ const PrescriptionDetails = ({
             />
           ))}
         <MedicineEditor
-              key={medicineList.length+1}
-              medicineList={medicineList}
-              setMedicineList={setMedicineList}
-            />
+          key={medicineList.length + 1}
+          medicineList={medicineList}
+          setMedicineList={setMedicineList}
+          focus={true}
+        />
       </div>
+
       {/* <button
         className="btn btn-primary btn-submit"
         onClick={HandleAddMedicine}
