@@ -6,6 +6,7 @@ import { setLoggedUser } from "../../../Settings/store/features/authentication/u
 import { userRole } from "../../../Settings/store/features/authentication/types";
 import Loading from "../../../Components/Loading";
 import { setAuthedState } from "../../../Settings/store/features/authentication/authedSlice";
+import logo from "../../../assets/images/logos/kayan-logo.png";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,25}$/;
 const PWD_REGEX =
@@ -61,50 +62,53 @@ const Login = () => {
     <>
       {(isLoading && <Loading overlap />) || (
         <div className="login">
-          <form className="form-login" onSubmit={HandleSubmit}>
-            {errMSg && (
-              <div
-                className="alert alert-danger d-flex align-items-center gap-2 mb-0"
-                role="alert"
-              >
-                <i className="fa fa-warning" aria-hidden="true"></i>
-                <div>{errMSg}</div>
+          <div className="form-wrapper">
+            <form className="form-login" onSubmit={HandleSubmit}>
+              {errMSg && (
+                <div
+                  className="alert alert-danger d-flex align-items-center gap-2 mb-0"
+                  role="alert"
+                >
+                  <i className="fa fa-warning" aria-hidden="true"></i>
+                  <div>{errMSg}</div>
+                </div>
+              )}
+              <img className="mx-auto mb-5" width={300} src={logo} alt="" />
+              <div className="input-icon">
+                <img
+                  src={require("../../../assets/images/icons/user.svg").default}
+                  alt=""
+                />
+
+                <input
+                  ref={userRef}
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="username"
+                  autoComplete="off"
+                  onChange={(e) => setUser(e.currentTarget.value)}
+                  value={user}
+                />
               </div>
-            )}
-            <div className="input-icon">
-              <img
-                src={require("../../../assets/images/icons/user.svg").default}
-                alt=""
-              />
+              <div className="input-icon">
+                <img
+                  src={require("../../../assets/images/icons/lock.svg").default}
+                  alt=""
+                />
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="password"
+                  onChange={(e) => setPwd(e.currentTarget.value)}
+                  value={pwd}
+                />
+              </div>
 
-              <input
-                ref={userRef}
-                type="text"
-                name="username"
-                id="username"
-                placeholder="username"
-                autoComplete="off"
-                onChange={(e) => setUser(e.currentTarget.value)}
-                value={user}
-              />
-            </div>
-            <div className="input-icon">
-              <img
-                src={require("../../../assets/images/icons/lock.svg").default}
-                alt=""
-              />
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="password"
-                onChange={(e) => setPwd(e.currentTarget.value)}
-                value={pwd}
-              />
-            </div>
-
-            <button className="btn btn-secondary btn-login">LOGIN</button>
-          </form>
+              <button className="btn btn-secondary btn-login">LOGIN</button>
+            </form>
+          </div>
         </div>
       )}
     </>

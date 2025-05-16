@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../../Layout/Layout";
+import Ai from "../../Pages/AI/Ai";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Account/LogIn/Login";
 import Easy from "../../Pages/Easy/Easy";
@@ -35,12 +36,11 @@ import Messages from "../../Pages/Messages/Messages";
 import Received from "../../Pages/Messages/Received";
 import Sent from "../../Pages/Messages/Sent";
 import NewMessage from "../../Pages/Messages/NewMessage";
+import Wall from "../../Pages/Wall/Wall";
 export const router = createBrowserRouter([
   {
     path: `/login`,
-    element: (
-      <Login />
-    )
+    element: <Login />,
   },
   {
     path: `/messages`,
@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
           <Messages />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/messages/received`,
@@ -58,11 +58,11 @@ export const router = createBrowserRouter([
       <RequiredAuth>
         <Layout>
           <Messages>
-            <Received/>
+            <Received />
           </Messages>
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/messages/sent`,
@@ -70,11 +70,11 @@ export const router = createBrowserRouter([
       <RequiredAuth>
         <Layout>
           <Messages>
-            <Sent/>
+            <Sent />
           </Messages>
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/messages/new`,
@@ -82,11 +82,11 @@ export const router = createBrowserRouter([
       <RequiredAuth>
         <Layout>
           <Messages>
-            <NewMessage/>
+            <NewMessage />
           </Messages>
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/settings`,
@@ -96,7 +96,7 @@ export const router = createBrowserRouter([
           <BasicSettings />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/settings/prescriptions`,
@@ -106,7 +106,7 @@ export const router = createBrowserRouter([
           <PrescriptionSettings />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/settings/change-password`,
@@ -116,7 +116,7 @@ export const router = createBrowserRouter([
           <ChangePassword />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/settings/change-language`,
@@ -126,7 +126,17 @@ export const router = createBrowserRouter([
           <ChangeLanguage />
         </Layout>
       </RequiredAuth>
-    )
+    ),
+  },
+  {
+    path: `/ai-assistant`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Ai />
+        </Layout>
+      </RequiredAuth>
+    ),
   },
   {
     path: `/`,
@@ -136,7 +146,7 @@ export const router = createBrowserRouter([
           <Home />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/easy`,
@@ -146,7 +156,7 @@ export const router = createBrowserRouter([
           <Easy />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/easy/allPatient`,
@@ -158,7 +168,7 @@ export const router = createBrowserRouter([
           </Easy>
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/easy/newPatient`,
@@ -170,7 +180,7 @@ export const router = createBrowserRouter([
           </Easy>
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/dr-easy`,
@@ -180,7 +190,7 @@ export const router = createBrowserRouter([
           <DrEasy />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/re-examination`,
@@ -190,7 +200,7 @@ export const router = createBrowserRouter([
           <ReExamination />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/add-patients`,
@@ -200,7 +210,7 @@ export const router = createBrowserRouter([
           <AddPatient />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/add-patients/new-reservation`,
@@ -212,7 +222,7 @@ export const router = createBrowserRouter([
           </AddPatient>
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/add-patients/old-reservation`,
@@ -224,7 +234,7 @@ export const router = createBrowserRouter([
           </AddPatient>
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/add-patients/online-reservation`,
@@ -236,7 +246,7 @@ export const router = createBrowserRouter([
           </AddPatient>
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/following-up`,
@@ -246,7 +256,7 @@ export const router = createBrowserRouter([
           <FollowingUp />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/examination`,
@@ -256,7 +266,7 @@ export const router = createBrowserRouter([
           <Examination />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/examination/new`,
@@ -266,7 +276,7 @@ export const router = createBrowserRouter([
           <New />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/examination/resumption`,
@@ -276,7 +286,7 @@ export const router = createBrowserRouter([
           <Resumption />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/examination/waiting`,
@@ -286,7 +296,7 @@ export const router = createBrowserRouter([
           <Waiting />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/examination/new/:code`,
@@ -296,7 +306,7 @@ export const router = createBrowserRouter([
           <NewDetails />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/patients`,
@@ -306,7 +316,7 @@ export const router = createBrowserRouter([
           <AllPatients />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/patients/archive/:code`,
@@ -316,7 +326,7 @@ export const router = createBrowserRouter([
           <PatientArchive />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/live`,
@@ -326,7 +336,7 @@ export const router = createBrowserRouter([
           <Live />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/medical-test`,
@@ -336,7 +346,7 @@ export const router = createBrowserRouter([
           <MedicalTest />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/account-reports`,
@@ -346,7 +356,7 @@ export const router = createBrowserRouter([
           <AccountReports />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/account-reports/patients`,
@@ -356,17 +366,17 @@ export const router = createBrowserRouter([
           <PatientChart />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/account-reports/bar-chart`,
     element: (
       <RequiredAuth>
         <Layout>
-          <BarChart/>
+          <BarChart />
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/account-reports/bar-chart/inputs`,
@@ -374,11 +384,11 @@ export const router = createBrowserRouter([
       <RequiredAuth>
         <Layout>
           <BarChart>
-            <Inputs/>
+            <Inputs />
           </BarChart>
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/account-reports/bar-chart/expense`,
@@ -386,11 +396,11 @@ export const router = createBrowserRouter([
       <RequiredAuth>
         <Layout>
           <BarChart>
-            <Expense/>
+            <Expense />
           </BarChart>
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
   {
     path: `/account-reports/bar-chart/net-profit`,
@@ -398,10 +408,20 @@ export const router = createBrowserRouter([
       <RequiredAuth>
         <Layout>
           <BarChart>
-            <Expense netProfit/>
+            <Expense netProfit />
           </BarChart>
         </Layout>
       </RequiredAuth>
-    )
+    ),
   },
-])
+  {
+    path: `/wall`,
+    element: (
+      <RequiredAuth>
+        <Layout>
+          <Wall />
+        </Layout>
+      </RequiredAuth>
+    ),
+  },
+]);
