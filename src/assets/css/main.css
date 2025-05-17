@@ -8,7 +8,7 @@
   justify-content: center;
   background-image: url("../images/gallery/bgs/login-pattern.svg");
   background-color: #fff;
-  background-size: 500px;
+  background-size: 1500px;
   /* background-repeat: no-repeat; */
   background-position: center;
 
@@ -18,7 +18,7 @@
     inset: 0;
     z-index: -1;
     background-color: rgba(49, 49, 49, 0.55);
-    /* backdrop-filter: blur(2px); */
+    backdrop-filter: blur(16px);
   }
 
   .form-wrapper {
@@ -36,7 +36,7 @@
       flex-direction: column;
       justify-content: center;
       row-gap: 1.25rem;
-      min-width: 370px;
+      min-width: 50%;
       padding: 0 2rem;
       .input-icon {
         background: transparent;
@@ -199,7 +199,7 @@
     }
   }
   &.minimize {
-    width: 60px;
+    width: 56px;
   }
 }
 
@@ -853,5 +853,180 @@
       padding: 0;
       border: none !important;
     }
+  }
+}
+
+.wall-wrapper {
+  flex-grow: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .wall-header {
+    width: 100%;
+    height: 180px;
+    background-color: var(--green-5);
+    text-align: center;
+    align-content: center;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+  }
+
+  .wall-content {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    .doctor-info {
+      position: sticky;
+      z-index: 2;
+      width: 240px;
+      img {
+        width: 130px;
+        height: 165px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        object-fit: cover;
+        margin-top: -6rem;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        margin-inline-start: 1rem;
+      }
+
+      .description {
+        margin-top: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+
+        .description-item-title {
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin-bottom: 0.25rem;
+        }
+
+        .description-item-value {
+          font-size: 1rem;
+          /* text-align: justify; */
+        }
+      }
+    }
+
+    .doctor-social {
+      flex-grow: 1;
+      padding: 2rem;
+      .post-card {
+        margin-inline: 1rem;
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 12px;
+      }
+
+      .ql-editor {
+        font-size: 1rem;
+
+        img {
+          max-width: 350px;
+        }
+      }
+
+      .btn-post {
+        margin-top: 1rem;
+        display: block;
+        padding: 0.35rem 1.15rem;
+      }
+
+      .old-posts {
+        margin-top: 2.5rem;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+        .old-post {
+          background-color: var(--blue-light-2);
+          box-shadow: 0 0 6px 2px rgba(var(--color-primary-rgb), 0.45);
+          color: var(--color-secondary);
+          border-radius: 8px;
+          padding: 1rem 1rem;
+          .old-post-header {
+            background-color: rgba(var(--color-primary-rgb), 0.95);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            display: flex;
+            gap: 0.5rem;
+            font-size: 12px;
+            font-weight: 500;
+            align-items: center;
+            width: fit-content;
+            color: #fff;
+            margin-bottom: 1.5rem;
+          }
+
+          .old-post-content {
+            img {
+              max-width: 350px;
+            }
+            a {
+              color: var(--color-primary);
+              text-decoration: underline;
+            }
+          }
+          .post-reactions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    padding: 1rem 2rem;
+    .wall-content {
+      flex-direction: column;
+      /* align-items: center; */
+      .doctor-info {
+        width: 100%;
+        margin-bottom: 2rem;
+
+        .description {
+          gap: 0.7rem;
+        }
+      }
+
+      .doctor-social {
+        padding: 0;
+      }
+    }
+  }
+  @media (max-width: 440px) {
+    padding: 1rem 0.5rem;
+    /* .wall-content {
+      flex-direction: column;
+      .doctor-info {
+        width: 100%;
+        margin-bottom: 2rem;
+
+        .description {
+          gap: 0.7rem;
+        }
+      }
+
+      .doctor-social {
+        padding: 0;
+      }
+    } */
   }
 }
