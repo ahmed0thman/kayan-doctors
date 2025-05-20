@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import defaultProfileImg from "../../assets/images/gallery/doctor.png";
 
 import { Editor } from "primereact/editor";
+import { post, postAction } from "./types";
+import PostCard from "./PostCard";
+import ModalWarningDelete from "../../Components/ModalWarningDelete/ModalWarningDelete";
+import CommentsPopup from "./CommentsPopup";
 
-type post = {
-  id: string;
-  date: Date;
-  postHTMLContent: string;
+const initPostAction: postAction = {
+  action: null,
+  post: { id: "", date: new Date(), postHTMLContent: "" },
 };
 
 const Wall = () => {
   const [showModalPost, setShowModalPost] = useState<boolean>(false);
-  const [text, setText] = useState<string>("");
+  const [textPost, setTextPost] = useState<string>("");
   const [posts, setPosts] = useState<post[]>([
     {
       id: "g243bj87rrg",
@@ -24,120 +27,141 @@ const Wall = () => {
     },
   ]);
 
+  const [postAction, setPostAction] = useState<postAction>(initPostAction);
+
   function handleAddPost() {
     const newPost = {
       id: Math.random().toString(36).substring(2, 15),
       date: new Date(),
-      postHTMLContent: text,
+      postHTMLContent: textPost,
     };
     setPosts((prevPosts) => [...prevPosts, newPost]);
-    setText("");
+    setTextPost("");
     setShowModalPost(false);
   }
+
+  function handleEditPost() {
+    const newPosts = posts.map((post) => {
+      if (postAction.post.id === post.id) {
+        const newPost = post;
+        newPost.postHTMLContent = textPost;
+        return newPost;
+      } else return post;
+    });
+    setPosts(newPosts);
+    resetPostAction();
+  }
+
+  function resetPostAction() {
+    setPostAction(initPostAction);
+    setShowModalPost(false);
+    setTextPost("");
+  }
+
+  function handleDeletePost() {
+    setPosts((prev) => {
+      const newPosts = prev.filter((post) => post.id !== postAction?.post.id);
+      return newPosts;
+    });
+    resetPostAction();
+  }
   return (
-    <div className="wall-wrapper">
-      <div className="wall-header">
-        cover photo
-        <img src="" alt="" />
-      </div>
-      <div className="wall-content">
-        <div className="doctor-info">
-          <img src={defaultProfileImg} alt="" />
-          <div className="description">
-            <div className="description-item">
-              <div className="description-item-title">Discription :</div>
-              <div className="description-item-value">
-                Dr. ahmed is a highly experienced consultant in internal
-                medicine, specializing in the diagnosis and treatment of a wide
-                range of medical conditions. He holds a [Degree] from
-                [University Name], with advanced training in [Specialized Field
-                or Fellowship, if applicable
+    <>
+      <div className="wall-wrapper">
+        <div className="wall-header">
+          cover photo
+          <img src="" alt="" />
+        </div>
+        <div className="wall-content">
+          <div className="doctor-info">
+            <img src={defaultProfileImg} alt="" />
+            <div className="description">
+              <div className="description-item">
+                <div className="description-item-title">Discription :</div>
+                <div className="description-item-value">
+                  Dr. ahmed is a highly experienced consultant in internal
+                  medicine, specializing in the diagnosis and treatment of a
+                  wide range of medical conditions. He holds a [Degree] from
+                  [University Name], with advanced training in [Specialized
+                  Field or Fellowship, if applicable
+                </div>
+              </div>
+              <div className="description-item">
+                <div className="description-item-title">Phone Number :</div>
+                <div className="description-item-value">+9687678567576</div>
+              </div>
+              <div className="description-item">
+                <div className="description-item-title">Clinic Address :</div>
+                <div className="description-item-value">mansoura</div>
               </div>
             </div>
-            <div className="description-item">
-              <div className="description-item-title">Phone Number :</div>
-              <div className="description-item-value">+9687678567576</div>
+          </div>
+          <div className="doctor-social">
+            <section className="d-flex align-items-center justify-content-between ">
+              <h3>Recents</h3>
+              <button
+                className="btn btn-outline-secondary py-2 px-3 fw-light"
+                onClick={() => setShowModalPost(true)}
+              >
+                Create New Post
+              </button>
+            </section>
+            <div
+              className={`modal ${
+                (showModalPost || postAction.action === "edit") && "show"
+              }`}
+            >
+              <div className="post-card">
+                <Editor
+                  value={textPost}
+                  onTextChange={(e) => setTextPost(e.htmlValue as string)}
+                  style={{ height: "450px" }}
+                  dir="auto"
+                />
+                <div className="d-flex gap-2 align-items-center justify-content-end">
+                  <button
+                    className="btn btn-outline-primary btn-post"
+                    onClick={resetPostAction}
+                  >
+                    cancel
+                  </button>
+                  <button
+                    className="btn btn-primary btn-post"
+                    onClick={
+                      postAction.action === "edit"
+                        ? handleEditPost
+                        : handleAddPost
+                    }
+                  >
+                    {postAction.action === "edit" ? "edit" : "Post"}
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="description-item">
-              <div className="description-item-title">Clinic Address :</div>
-              <div className="description-item-value">mansoura</div>
+
+            <div className="old-posts">
+              {posts.map((post) => (
+                <PostCard
+                  key={post.id}
+                  post={post}
+                  setPostAction={setPostAction}
+                  setTextPost={setTextPost}
+                />
+              ))}
             </div>
           </div>
         </div>
-        <section className="doctor-social">
-          <div className="d-flex align-items-center justify-content-between ">
-            <h3>Recents</h3>
-            <button
-              className="btn btn-outline-secondary py-2 px-3 fw-light"
-              onClick={() => setShowModalPost(true)}
-            >
-              Create New Post
-            </button>
-          </div>
-          <div className={`modal ${showModalPost && "show"}`}>
-            <div className="post-card">
-              <Editor
-                value={text}
-                onTextChange={(e) => setText(e.htmlValue as string)}
-                style={{ height: "450px" }}
-              />
-              <div className="d-flex gap-2 align-items-center justify-content-end">
-                <button
-                  className="btn btn-outline-primary btn-post"
-                  onClick={() => setShowModalPost(false)}
-                >
-                  cancel
-                </button>
-                <button
-                  className="btn btn-primary btn-post"
-                  onClick={handleAddPost}
-                >
-                  Post
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="old-posts">
-            {posts.map((post) => (
-              <div key={post.id} className="old-post">
-                <div className="old-post-header">
-                  <i className="fa fa-calendar" aria-hidden="true"></i>
-                  {post.date.toLocaleDateString()}{" "}
-                  {post.date
-                    .toLocaleTimeString()
-                    .split(":")
-                    .slice(0, 2)
-                    .join(":")}{" "}
-                  {post.date.toLocaleTimeString().split(" ")[1]}
-                </div>
-                <div
-                  className="old-post-content"
-                  dir="auto"
-                  dangerouslySetInnerHTML={{ __html: post.postHTMLContent }}
-                ></div>
-                <div className="post-reactions">
-                  <div className="d-flex align-items-center gap-1">
-                    <span className="fw-light">20</span>
-                    <i
-                      className="fa fa-heart text-danger"
-                      aria-hidden="true"
-                    ></i>
-                  </div>
-                  <div className="d-flex align-items-center gap-1">
-                    <span className="fw-light">20</span>
-                    <i
-                      className="fa fa-comment text-info"
-                      aria-hidden="true"
-                    ></i>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        <CommentsPopup
+          resetPostAction={resetPostAction}
+          show={postAction.action === "comments"}
+        />
       </div>
-    </div>
+      <ModalWarningDelete
+        show={postAction?.action === "delete"}
+        handleClose={resetPostAction}
+        handleOk={handleDeletePost}
+      />
+    </>
   );
 };
 

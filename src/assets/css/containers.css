@@ -14,6 +14,7 @@ main {
   max-width: 1600px;
   display: flex;
   flex-direction: column;
+  background-color: rgba(var(--blue-light-3-rgb), 0.7);
 }
 
 .page {
@@ -40,6 +41,7 @@ section {
   background-color: #fff;
   padding: 1.5rem 2rem;
   margin-bottom: 1rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.11);
 }
 
 .data-grid {
@@ -67,7 +69,7 @@ section {
     }
 
     &.ag-row-odd {
-      background-color: rgba(var(--color-primary-rgb), 0.1);
+      background-color: rgba(var(--color-primary-rgb), 0.15);
       /* color: #fff; */
 
       /* .badge.orange {
@@ -82,17 +84,22 @@ section {
     }
   }
   .ag-header {
-    background-color: #fff;
+    background-color: rgba(var(--color-primary-rgb));
     border: none;
     min-height: 50px !important;
     height: 50px !important;
 
     .ag-header-row {
       height: 50px !important;
-      background-color: var(--color-secondary);
     }
     .ag-header-cell {
       height: 50px !important;
+    }
+
+    .ag-header-cell:is(:last-child) {
+      .ag-header-cell-resize {
+        opacity: 0;
+      }
     }
 
     .ag-header-cell-label {
@@ -100,10 +107,11 @@ section {
     }
 
     .ag-header-cell-text {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       line-height: 20;
-      color: #f2f2f2;
+      color: #fff;
+      font-weight: 500;
     }
     .ag-header-cell-resize {
       &:after {
