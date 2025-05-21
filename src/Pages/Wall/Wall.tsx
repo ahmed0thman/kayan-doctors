@@ -97,10 +97,22 @@ const Wall = () => {
             </div>
           </div>
           <div className="doctor-social">
-            <section className="d-flex align-items-center justify-content-between ">
-              <h3>Recents</h3>
+            <section className="d-flex align-items-center justify-content-between gap-2 flex-wrap">
+              <div className="form-group d-flex align-items-center gap-2 flex-grow-1 flex-sm-grow-0">
+                <label htmlFor="postSort" className=" text-nowrap">
+                  Sort by:
+                </label>
+                <select
+                  name="postSort"
+                  id="postSort"
+                  className="form-select py-1"
+                >
+                  <option value="recent">recent</option>
+                  <option value="oldest">oldest</option>
+                </select>
+              </div>
               <button
-                className="btn btn-outline-secondary py-2 px-3 fw-light"
+                className="btn btn-outline-secondary py-2 px-3 fw-light ms-auto"
                 onClick={() => setShowModalPost(true)}
               >
                 Create New Post

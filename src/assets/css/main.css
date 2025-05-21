@@ -312,7 +312,8 @@
           .option {
             padding: 0.33rem;
             transition: all 0.33s ease;
-            a {
+            a,
+            span {
               color: #4c535f;
               font-size: 14px;
               font-weight: 500;

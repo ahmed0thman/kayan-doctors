@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/logos/kayan-logo.png";
 import { navLinkList } from "./navLinkList";
@@ -11,18 +11,36 @@ const SideMenu = () => {
   const [menuItems, setMenuItems] = useState<navLink[]>(navLinkList());
   const [minMenu, setMinMenu] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
+  const btnMenuRef = useRef<HTMLButtonElement | null>(null);
   const lan = useSelector(language);
   window.onresize = (e) => {
     if (window.innerWidth < 992) {
       setMinMenu(true);
     }
   };
+
+  useEffect(() => {
+    if (showMenu === false) {
+      return;
+    }
+    const handleHideMenu = (e: MouseEvent) => {
+      if (!btnMenuRef.current?.contains(e.target as Node)) {
+        setShowMenu(false);
+        document.removeEventListener("click", handleHideMenu);
+      }
+    };
+    document.addEventListener("click", handleHideMenu);
+
+    return () => document.removeEventListener("click", handleHideMenu);
+  }, [showMenu]);
+
   useEffect(() => {
     setMenuItems(navLinkList());
   }, [lan]);
   return (
     <>
       <button
+        ref={btnMenuRef}
         className="btn btn-menu d-md-none"
         onClick={() => setShowMenu((old) => !old)}
       >

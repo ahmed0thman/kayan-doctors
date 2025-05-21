@@ -58,13 +58,6 @@ const MedicineEditor = ({
       note: medicineNote,
     };
     setMedicineList([...medicineList, newMedicine]);
-    // setMedicineName("");
-    // setMedicineDose("");
-    // setMedicineTime("");
-    // setMedicineNote("");
-    // setNameEntered(false);
-    // setTimeEntered(false);
-    // setDoseEntered(false);
   };
 
   const HandleRemoveMedicine = (name: string) => {
@@ -97,29 +90,6 @@ const MedicineEditor = ({
       nameInputRef.current?.focus();
     }
   }, []);
-  // useEffect(() => {
-  //   if (nameEntered) {
-  //     doseInputRef.current?.focus();
-  //   }
-  // }, [nameEntered]);
-
-  // useEffect(() => {
-  //   if (doseEntered) {
-  //     timeInputRef.current?.focus();
-  //   }
-  // }, [doseEntered]);
-
-  // useEffect(() => {
-  //   if (timeEntered) {
-  //     noteInputRef.current?.focus();
-  //   }
-  // }, [timeEntered]);
-
-  // useEffect(() => {
-  //   if (noteEntered) {
-  //     nameInputRef.current?.focus();
-  //   }
-  // }, [noteEntered]);
   return (
     <>
       <div className="form-group input-suggestion">
@@ -129,7 +99,7 @@ const MedicineEditor = ({
           type="text"
           name="medicineName"
           id="medicineName"
-          className="form-control"
+          className="form-control w-auto"
           placeholder="Enter Medicine Name"
           value={medicineName}
           onChange={handleFilterdMedicine}
@@ -141,8 +111,20 @@ const MedicineEditor = ({
           }}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 1000)}
           autoFocus={focus}
+          list="medicines"
         />
-        {showSuggestions && (
+        <datalist id="medicines">
+          {medicineSuggestion.length ? (
+            medicineSuggestion.map((ele) => (
+              <option value={ele}></option>
+              // <li onClick={() => handleSelectedSuggestion(ele)}>{ele}</li>
+            ))
+          ) : (
+            <li>No Suggestions available</li>
+          )}
+          <option value=""></option>
+        </datalist>
+        {/* {showSuggestions && (
           <ul className="suggestions-list">
             {medicineSuggestion.length ? (
               medicineSuggestion.map((ele) => (
@@ -152,7 +134,7 @@ const MedicineEditor = ({
               <li>No Suggestions available</li>
             )}
           </ul>
-        )}
+        )} */}
       </div>
 
       <div className="px-4 d-flex flex-column">
