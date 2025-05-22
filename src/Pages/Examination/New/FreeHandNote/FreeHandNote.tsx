@@ -6,7 +6,7 @@ import eraserImg from "../../../../assets/images/icons/eraser.svg";
 type point = [number, number, number];
 
 type pathShape = {
-  shape: any;
+  shape: string;
   color: string;
 };
 
@@ -18,14 +18,14 @@ export default function FreeHandNote({
   const [noteName, setNoteName] = useState<string>("Note Title");
   const [showMenuSettings, setShowMenuSettings] = useState<boolean>(true);
   const [editNoteTitle, setEditNoteTitle] = useState<boolean>(false);
-  const [size, setSize] = useState(21);
+  const [size, setSize] = useState(12);
   const [thinning, setThinning] = useState(0);
   const [streamline, setStreamline] = useState(0.05);
   const [smoothing, setSmoothing] = useState(0.99);
   // const [easing, setEasing] = useState("linear");
   const [taperStart, setTaperStart] = useState(0);
   const [capStart, setCapStart] = useState(true);
-  const [taperEnd, setTaperEnd] = useState(0);
+  const [taperEnd, setTaperEnd] = useState(15);
   const [capEnd, setCapEnd] = useState(true);
   // const [fill, setFill] = useState(true);
   const [stroke, setStroke] = useState(0);
@@ -56,7 +56,7 @@ export default function FreeHandNote({
     start: {
       taperStart: taperStart,
       easing: (t: number) => t,
-      capStart: true,
+      capStart: capStart,
     },
     end: {
       taper: taperEnd,
@@ -256,7 +256,7 @@ export default function FreeHandNote({
               step={0.01}
               onChange={(e) => setSmoothing(+e.target.value)}
             />
-            <label>Stroke</label>
+            {/* <label>Stroke</label>
             <input
               type="range"
               min={0}
@@ -268,7 +268,7 @@ export default function FreeHandNote({
               type="number"
               value={stroke}
               onChange={(e) => setStroke(+e.target.value)}
-            />
+            /> */}
 
             {/* <label>Easing</label>
             <select
@@ -304,7 +304,7 @@ export default function FreeHandNote({
             </select> */}
           </div>
           <hr />
-          <div className="freehand-editor-settings">
+          {/* <div className="freehand-editor-settings">
             <label>Taper Start</label>
             <input
               type="range"
@@ -325,7 +325,7 @@ export default function FreeHandNote({
               checked={capStart}
               onChange={() => setCapStart(!capStart)}
             />
-          </div>
+          </div> */}
 
           <div className="freehand-editor-settings">
             <label>Taper End</label>

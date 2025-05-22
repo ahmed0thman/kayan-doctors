@@ -22,6 +22,7 @@ html {
   --color-gray-5: #bababa;
 
   --color-secondary: #002f3d;
+  --color-secondary-rgb: 0, 47, 61;
   --color-text-success: #3cd139;
   --color-text-warning: #e3b231;
   --color-text-danger: #e33131;

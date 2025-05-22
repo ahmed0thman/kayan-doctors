@@ -55,7 +55,7 @@ const MedicalFilesGrid = ({
         const patientCode: string = props.data.name;
         return (
           <button className="btn px-2 py-1" onClick={showGallery}>
-            <i className="fa fa-eye"></i>
+            <i className="fa fa-file-image-o" aria-hidden="true"></i>
           </button>
         );
       },
