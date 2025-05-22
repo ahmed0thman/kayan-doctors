@@ -115,17 +115,19 @@ const NewDetails = () => {
             </div>
           </div>
 
-          <div className="col-12 col-md-6 d-flex flex-column">
-            <div className="d-flex justify-content-end mt-auto">
-              <button
-                className="btn btn-primary py-2 d-flex align-items-center gap-2"
-                onClick={() => setShowHandNoteEditor(true)}
-              >
-                New Note
-                <i className="fa fa-plus" aria-hidden="true"></i>
-              </button>
+          {prescription.specialization === specialization.TEHRAPIST && (
+            <div className="col-12 col-md-6 d-flex flex-column">
+              <div className="d-flex justify-content-end mt-auto">
+                <button
+                  className="btn btn-primary py-2 d-flex align-items-center gap-2"
+                  onClick={() => setShowHandNoteEditor(true)}
+                >
+                  New Note
+                  <i className="fa fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
       {prescription.specialization === specialization.TEHRAPIST && (
