@@ -166,7 +166,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .btn:active {
-  border: none;
+  opacity: 1 !important;
 }
 
 a.btn {
@@ -1034,6 +1034,142 @@ input:-webkit-autofill:active {
     li:hover {
       background-color: #f1f1f1;
       cursor: pointer;
+    }
+  }
+}
+
+.freehand-editor {
+  width: calc(100% - 4rem);
+  height: calc(100% - 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  .freehand-editor-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .btn {
+      padding: 0.25rem 1rem;
+    }
+
+    .notename {
+      padding: 4px 12px !important;
+    }
+
+    .btn-menu {
+      padding: 2px 8px;
+      border: 0 !important;
+      border: 1px solid var(--color-gray-1) !important;
+      color: var(--color-gray-5);
+      font-size: 1.5rem;
+      &:hover {
+        background-color: var(--color-gray-2);
+      }
+      &:active {
+        opacity: 0.8 !important;
+      }
+    }
+  }
+
+  .freehand-editor-body {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    svg {
+      flex-grow: 1;
+      touch-action: none;
+      border: 1px solid var(--color-gray-1);
+      border-radius: 10px;
+    }
+
+    .freehand-editor-menu {
+      position: absolute;
+      padding: 1rem;
+      font-size: 13px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-bottom-right-radius: 16px;
+      width: 300px;
+      opacity: 1;
+      transition: 0.25s ease-out;
+      box-shadow: 0px 0px 8px -4px rgba(0, 0, 0, 0.16),
+        0px 0px 36px 0px rgba(0, 0, 0, 0.08);
+
+      &.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+  .freehand-editor-settings {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-auto-rows: 32px;
+    align-items: center;
+    column-gap: 16px;
+
+    input[type="range"] {
+      max-width: 200px;
+      height: 16px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      flex-grow: 1;
+      user-select: none;
+      touch-action: none;
+    }
+
+    input[type="number"] {
+      font-size: 12px;
+      border: none;
+      width: 40px;
+      text-align: right;
+      padding: 4px 4px;
+    }
+  }
+
+  .colors-grid {
+    display: flex;
+    /* grid-column: span 2; */
+
+    button {
+      cursor: pointer;
+      flex-grow: 2;
+      border: none;
+      height: 24px;
+      width: 100%;
+
+      &.selected {
+        border-bottom: 5px solid dodgerblue;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    height: 40px;
+    button {
+      cursor: pointer;
+      flex-grow: 2;
+      font-family: "Recursive", sans-serif;
+      border: none;
+      background-color: transparent;
+      border: 2px solid transparent;
+    }
+  }
+
+  .btn-eraser {
+    /* position: absolute;
+      bottom: 2rem; */
+    border: 0 !important;
+    padding: 4px 8px;
+
+    img {
+      width: 1.5rem;
+      object-fit: contain;
     }
   }
 }

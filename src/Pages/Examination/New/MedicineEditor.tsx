@@ -5,11 +5,13 @@ const MedicineEditor = ({
   medicineList,
   setMedicineList,
   currentElement,
+  keyId,
   focus = false,
 }: {
   medicineList: medicine[];
   setMedicineList: any;
   currentElement?: medicine | null;
+  keyId: number;
   focus?: boolean;
 }) => {
   const [medicineName, setMedicineName] = useState<string>("");
@@ -111,9 +113,9 @@ const MedicineEditor = ({
           }}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 1000)}
           autoFocus={focus}
-          list="medicines"
+          list={`medicines-${keyId}`}
         />
-        <datalist id="medicines">
+        <datalist id={`medicines-${keyId}`}>
           {medicineSuggestion.length ? (
             medicineSuggestion.map((ele) => (
               <option value={ele}></option>
