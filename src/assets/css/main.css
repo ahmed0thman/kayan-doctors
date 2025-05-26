@@ -217,10 +217,10 @@
     height: 100%;
     position: relative;
     overflow: hidden;
-    margin-top: -10px;
+
     align-content: center;
-    padding: 1rem 6rem 2rem;
-    padding-inline-start: 2rem;
+    padding: 1rem 8rem 2rem;
+    padding-inline-start: 1rem;
     max-width: 700px;
     .title {
       white-space: nowrap;
@@ -235,18 +235,19 @@
     &:before {
       content: "";
       position: absolute;
-      width: calc(100% - 1rem);
+      width: 100%;
       /* height: calc(100% - 1rem); */
       inset-inline-start: 0.5rem;
       /* top: 0.5rem;*/
       /* width: 100%; */
       height: 100%;
-      inset-inline-start: 4px;
+      inset-inline-start: 0;
       top: 0;
       background-color: var(--color-primary);
       z-index: -1;
       /* mask: radial-gradient(20px at 20px 20px, #0000 98%, #000) -20px -20px; */
-      border-radius: 22% 79% 100% 16% / 0% 0% 100% 73%;
+      /* border-radius: 22% 79% 100% 16% / 0% 0% 100% 73%; */
+      border-radius: 19% 51% 100% 0% / 0% 0% 100% 0%;
     }
 
     @media (max-width: 992px) {
@@ -678,6 +679,27 @@
   }
 }
 
+.notes {
+  .notes-action-types {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    button {
+      border: 0 !important;
+      background-color: #efefef;
+      padding: 4px 8px;
+      color: var(--color-gray-4);
+
+      &:hover {
+        background-color: #dadada;
+      }
+      &:active {
+        background-color: var(--color-gray-1);
+      }
+    }
+  }
+}
+
 .medicine-editor {
   margin-top: 1rem;
   min-height: 550px;
@@ -949,34 +971,6 @@
     .doctor-social {
       flex-grow: 1;
       padding: 2rem;
-      .post-card {
-        margin-inline: 1rem;
-        background-color: #fff;
-        padding: 1rem;
-        border-radius: 12px;
-      }
-
-      .ql-toolbar {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 8px;
-        align-items: center;
-      }
-
-      .ql-editor {
-        font-size: 1rem;
-
-        img {
-          max-width: 350px;
-        }
-      }
-
-      .btn-post {
-        margin-top: 1rem;
-        display: block;
-        padding: 0.35rem 1.15rem;
-      }
 
       .old-posts {
         margin-top: 2.5rem;

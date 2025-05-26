@@ -13,11 +13,9 @@ import CardFile from "./CardFile";
 import { useSelector } from "react-redux";
 import { prescriptionState } from "../../../Settings/store/features/prescriptions/prescriptionSlice";
 import { specialization } from "../../../Settings/store/features/prescriptions/types";
-import logoIcon from "../../../assets/images/icons/logo-2.svg";
-import { format } from "date-fns";
-import domtoimage from "dom-to-image";
 import PrescriptionForm from "../../../Components/Prescription/PrescriptionForm";
 import FreeHandNote from "./FreeHandNote/FreeHandNote";
+import Notes from "./Notes";
 
 const NewDetails = () => {
   const location = useLocation();
@@ -46,7 +44,6 @@ const NewDetails = () => {
   const [hearing, setHearing] = useState<number>();
 
   const [showPrescription, setShowPrescription] = useState<boolean>(false);
-  const [showHandNoteEditor, setShowHandNoteEditor] = useState<boolean>(false);
 
   const HandleShowPrescription = () => {
     setShowPrescription(true);
@@ -114,27 +111,9 @@ const NewDetails = () => {
               </LocalizationProvider>
             </div>
           </div>
-
-          {prescription.specialization === specialization.TEHRAPIST && (
-            <div className="col-12 col-md-6 d-flex flex-column">
-              <div className="d-flex justify-content-end mt-auto">
-                <button
-                  className="btn btn-primary py-2 d-flex align-items-center gap-2"
-                  onClick={() => setShowHandNoteEditor(true)}
-                >
-                  New Note
-                  <i className="fa fa-plus" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          )}
         </div>
       </section>
-      {prescription.specialization === specialization.TEHRAPIST && (
-        <div className={`modal ${showHandNoteEditor ? "show" : ""}`}>
-          <FreeHandNote setShowHandNoteEditor={setShowHandNoteEditor} />
-        </div>
-      )}
+      {prescription.specialization === specialization.TEHRAPIST && <Notes />}
 
       <PrescriptionDetails
         key={2}

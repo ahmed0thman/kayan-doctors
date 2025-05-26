@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { getStroke } from "perfect-freehand";
 import { getSvgPathFromStroke } from "./utils";
 import eraserImg from "../../../../assets/images/icons/eraser.svg";
+import { Note } from "../types";
 
 type point = [number, number, number];
 
@@ -12,8 +13,10 @@ type pathShape = {
 
 export default function FreeHandNote({
   setShowHandNoteEditor,
+  addNote,
 }: {
   setShowHandNoteEditor: any;
+  addNote: (note: Note) => void;
 }) {
   const [noteName, setNoteName] = useState<string>("Note Title");
   const [showMenuSettings, setShowMenuSettings] = useState<boolean>(true);
@@ -128,6 +131,18 @@ export default function FreeHandNote({
     URL.revokeObjectURL(url);
   }
 
+  function handleSaveNote() {
+    const note: Note = {
+      id: new Date().getTime().toString(),
+      name: noteName,
+      type: "hand",
+      note: pathShapes,
+    };
+    addNote(note);
+    setPathShapes([]);
+    setShowHandNoteEditor(false);
+  }
+
   useEffect(
     function () {
       if (points.length > 0) {
@@ -182,7 +197,9 @@ export default function FreeHandNote({
         </div>
 
         <div className="d-flex gap-3 align-items-center">
-          <button className="btn btn-primary">Save</button>
+          <button className="btn btn-primary" onClick={handleSaveNote}>
+            Save
+          </button>
           <span
             className="btn btn-close p-0"
             onClick={() => setShowHandNoteEditor(false)}

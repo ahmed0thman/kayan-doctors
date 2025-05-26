@@ -2,7 +2,7 @@ html[dir="rtl"] {
   .header {
     .bread-crumb {
       &:before {
-        transform: rotate(40deg);
+        transform: rotateY(180deg);
       }
     }
   }

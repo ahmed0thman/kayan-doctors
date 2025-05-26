@@ -38,7 +38,7 @@ const MedicineEditor = ({
       return;
     }
     const filteredMedicines = Medicines.filter((ele: string) => {
-      return ele.toLowerCase().includes(input.toLowerCase());
+      return ele.toLowerCase().startsWith(input.toLowerCase());
     });
 
     setMedicineSuggestion(filteredMedicines);
@@ -115,7 +115,7 @@ const MedicineEditor = ({
           autoFocus={focus}
           list={`medicines-${keyId}`}
         />
-        <datalist id={`medicines-${keyId}`}>
+        {/* <datalist id={`medicines-${keyId}`}>
           {medicineSuggestion.length ? (
             medicineSuggestion.map((ele) => (
               <option value={ele}></option>
@@ -125,8 +125,8 @@ const MedicineEditor = ({
             <li>No Suggestions available</li>
           )}
           <option value=""></option>
-        </datalist>
-        {/* {showSuggestions && (
+        </datalist> */}
+        {showSuggestions && (
           <ul className="suggestions-list">
             {medicineSuggestion.length ? (
               medicineSuggestion.map((ele) => (
@@ -136,7 +136,7 @@ const MedicineEditor = ({
               <li>No Suggestions available</li>
             )}
           </ul>
-        )} */}
+        )}
       </div>
 
       <div className="px-4 d-flex flex-column">

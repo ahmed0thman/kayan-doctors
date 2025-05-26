@@ -927,6 +927,38 @@ input:-webkit-autofill:active {
   }
 }
 
+/* Text Editor Styles */
+
+.post-card {
+  margin-inline: 1rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.btn-post {
+  margin-top: 1rem;
+  display: block;
+  padding: 0.35rem 1.15rem;
+}
+
+.ql-toolbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.ql-editor {
+  font-size: 1rem;
+
+  img {
+    max-width: 350px;
+  }
+}
+/* End Text Editor Styles */
+
 .css-189ousr-MuiPopper-root-MuiPickersPopper-root {
   z-index: 100000 !important;
 }
