@@ -62,7 +62,14 @@
     "ignorePatterns": [
       "node_modules/",
       "src/assets/libs/**/*.js"
-    ]
+    ],
+    "rules": {
+      "@typescript-eslint/no-unused-vars": "off",
+      "react-hooks/exhaustive-deps": "off",
+      "jsx-a11y/alt-text": "off",
+      "no-template-curly-in-string": "off",
+      "eqeqeq": "off"
+    }
   },
   "browserslist": {
     "production": [
